@@ -34,51 +34,70 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Créer un compte!</h1>
                             </div>
-                            <form class="user">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="First Name">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                            placeholder="Last Name">
-                                    </div>
+                            <form method="POST" action="{{ route('register') }}" class="user">
+                                @csrf
+                            <div class="form-group row">
+                                <!-- Name -->
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <x-input-label for="username" :value="__('Username')" />
+                                    <x-text-input id="username" class="form-control form-control-user" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
+                                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
                                 </div>
+
+                                <!-- Service -->
+                                <div class="col-sm-6">
+                                    <x-input-label for="service" :value="__('Service')" />
+                                    <x-text-input id="service" class="form-control form-control-user" type="text" name="service" :value="old('service')" required autocomplete="service" />
+                                    <x-input-error :messages="$errors->get('service')" class="mt-2" />
+                                </div>
+                            </div>
+                        
+                                <!-- Email Address -->
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                    <x-input-label for="email" :value="__('Email')" />
+                                    <x-text-input id="email" class="form-control form-control-user" type="email" name="email" :value="old('email')" required autocomplete="email" />
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
-                                    </div>
+                        
+                            <div class="form-group row">
+                                <!-- Password -->
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <x-input-label for="password" :value="__('Mot de passe')" />
+                        
+                                    <x-text-input id="password" class="form-control form-control-user"
+                                                    type="password"
+                                                    name="password"
+                                                    required autocomplete="new-password" />
+                        
+                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
-                                <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
-                            </form>
+                        
+                                <!-- Confirm Password -->
+                                <div class= "col-sm-6">
+                                    <x-input-label for="password_confirmation" :value="__('Confirmer mot de passe')" />
+                        
+                                    <x-text-input id="password_confirmation" class="form-control form-control-user"
+                                                    type="password"
+                                                    name="password_confirmation" required autocomplete="new-password" />
+                        
+                                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                                </div>
+                            </div>
                             <hr>
-                            <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
-                            </div>
-                            <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
-                            </div>
+                                <div class="text-center">
+                                    <x-primary-button class="btn btn-primary btn-user btn-block">
+                                        {{ __('S\'enregistrer') }}
+                                    </x-primary-button>
+
+                                    <a class="large" href="{{ route('login') }}">
+                                        {{ __('Déjà un compte?') }}
+                                    </a>
+                        
+                                  
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

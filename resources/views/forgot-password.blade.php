@@ -13,8 +13,8 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    <link 
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -39,26 +39,36 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-2">Forgot Your Password?</h1>
-                                        <p class="mb-4">We get it, stuff happens. Just enter your email address below
-                                            and we'll send you a link to reset your password!</p>
+                                        <h1 class="h4 text-gray-900 mb-2">Mot de passe oublier ?</h1>
+                                        <p class="mb-4">Nous comprenons, ces choses arrivent. Entrez simplement votre adresse e-mail ci-dessous
+                                        et nous vous enverrons un lien pour réinitialiser votre mot de passe!</p>
                                     </div>
-                                    <form class="user">
+                                    <!-- Session Status -->
+                                    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                                    <form method="POST" action="{{ route('password.email') }}" class="user">
+                                        @csrf
+
+                                        <!-- Email Address -->
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                            <x-input-label for="email" :value="__('Email')" />
+                                            <x-text-input id="email"  class="form-control form-control-user" type="email" name="email" :value="old('email')" required autofocus />
+                                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                         </div>
-                                        <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                            Reset Password
-                                        </a>
+                                        
+                                       
+                                            <x-primary-button class="btn btn-primary btn-user btn-block">
+                                                {{ __('Réinitialiser le mot de passe') }}
+                                            </x-primary-button>
+                                        
+                                      
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="large" href="register">Créer un compte</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="login.html">Already have an account? Login!</a>
+                                        <a class="large" href="login">Déjà un compte? connectez vous!</a>
                                     </div>
                                 </div>
                             </div>

@@ -39,42 +39,60 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Bienvenue ! ! !</h1>
                                     </div>
-                                    <form class="user">
+                               <!-- Session Status -->
+                                    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                                    <form method="POST" action="{{ route('login') }}" class="user">
+                                        @csrf
+
+                                        <!-- Email Address -->
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                            <x-input-label for="email" :value="__('Email')" />
+                                            <x-text-input id="email" class="form-control form-control-user" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                         </div>
+
+                                        <!-- Password -->
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <x-input-label for="password" :value="__('Mot de passe')" />
+
+                                            <x-text-input id="password" class="form-control form-control-user"
+                                                            type="password"
+                                                            name="password"
+                                                            required autocomplete="current-password" />
+
+                                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
+
+                                        <!-- Remember Me -->
+                                        <div class="block mt-4">
+                                            <label for="remember_me" class="inline-flex items-center">
+                                                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
+                                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Rester connecter') }}</span>
+                                            </label>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+
+                                        <div class="flex items-center justify-end mt-4">
+                                            <x-primary-button class="btn btn-primary btn-user btn-block">
+                                                {{ __('Se connecter') }}
+                                            </x-primary-button>
+
+                                            @if (Route::has('password.request'))
+                                                <div class="text-center">
+                                                    <a class="large" href="{{ route('password.request') }}">
+                                                        {{ __('Mot de passe oublier?') }}
+                                                    </a>
+                                                </div>
+                                            @endif
+
+                                           
+                                        </div>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="large" href="register">Créer un compte!</a>
                                     </div>
                                 </div>
                             </div>

@@ -39,7 +39,7 @@
     <li class="nav-item">
         <a class="nav-link" href="tables.html">
             <i class="far fa-calendar-alt"></i>
-            <span>Programme</span></a>
+            <span>Planning</span></a>
     </li>
 
 
@@ -67,9 +67,9 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Connexions</h6>
-                <a class="collapse-item" href=login.html>Connexion</a>
-                <a class="collapse-item" href="register.html">Enregistrement</a>
-                <a class="collapse-item" href="forgot-password.html">Mot de passe oublié</a>
+                <a class="collapse-item" href=login>Connexion</a>
+                <a class="collapse-item" href="register">Enregistrement</a>
+                <a class="collapse-item" href="forgot-password">Mot de passe oublié</a>
                 <div class="collapse-divider"></div>
             </div>
         </div>

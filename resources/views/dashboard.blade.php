@@ -1,13 +1,13 @@
+
 @extends('layout.app')
 
 @section('content')
-    
-    @include('partial.sidebar')
 
+    @include('partial.sidebar')
     <div id="content-wrapper" class="d-flex flex-column">
     <div id="content">
     @include('partial.header')
-    
+
         <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -344,7 +344,7 @@
     </div>
     </div>
 
-    @endsection
+@endsection
 
 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,28 +18,14 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/login.html', function () {
-    return view('login');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/index.html', function () {
-    return view('welcome');
-});
-
-Route::get('/register.html', function () {
-    return view('register');
-});
-
-Route::get('/404.html', function () {
-    return view('404');
-});
-
-Route::get('/blank.html', function () {
-    return view('blank');
-});
-
-Route::get('/forgot-password.html', function () {
-    return view('forgot-password');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::get('/tables.html', function () {
@@ -48,3 +35,13 @@ Route::get('/tables.html', function () {
 Route::get('/charts.html', function () {
     return view('charts');
 });
+
+Route::get('/index.html', function () {
+    return view('dashboard');
+});
+Route::get('/dashboard1', function () {
+    return view('dashboard1');
+});
+
+
+require __DIR__.'/auth.php';
