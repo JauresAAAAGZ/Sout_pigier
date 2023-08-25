@@ -2,7 +2,7 @@
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('dashboard')}}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-graduation-cap"></i>
         </div>
@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Tableau de bord</span></a>
     </li>
@@ -29,7 +29,7 @@
 
     <!-- Nav Item - Liste Etudiants -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ route('etudiants.index') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Liste des étudiants</span></a>
     </li>
@@ -37,7 +37,7 @@
     
     <!-- Nav Item - Programme-->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{route('tables')}}">
             <i class="far fa-calendar-alt"></i>
             <span>Planning</span></a>
     </li>
@@ -45,14 +45,14 @@
 
     <!-- Nav Item - Jury-->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{route('jurys.index')}}">
             <i class="fas fa-edit"></i>
             <span>Jury</span></a>
     </li>
 
     <!-- Nav Item - PV -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{route('charts')}}">
             <i class="far fa-file-alt"></i>
             <span>Procès Verbal</span></a>
     </li>
@@ -67,9 +67,9 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Connexions</h6>
-                <a class="collapse-item" href=login>Connexion</a>
-                <a class="collapse-item" href="register">Enregistrement</a>
-                <a class="collapse-item" href="forgot-password">Mot de passe oublié</a>
+                <a class="collapse-item" href={{route('login')}}>Connexion</a>
+                <a class="collapse-item" href={{route('register')}}>Enregistrement</a>
+                <a class="collapse-item" href={{route('password.request')}}>Mot de passe oublié</a>
                 <div class="collapse-divider"></div>
             </div>
         </div>

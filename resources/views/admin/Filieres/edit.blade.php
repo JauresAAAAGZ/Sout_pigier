@@ -1,0 +1,52 @@
+@extends('layout.app')
+
+
+@section('content')
+
+    
+
+        <!-- Sidebar -->
+        @include('partial.sidebar')
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                @include('partial.header')
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <h1 class="mb-0">Editer Filiere</h1>
+                <hr />
+                <form action="{{ route('filieres.update', $filiere) }}" method="post">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <div class="col mb-3">
+                            <label class="form-label">Intitule_Filiere</label>
+                            <input type="text" name="Intitule_Filiere" class="form-control" placeholder="Intitule_Filiere" value="{{ $filiere->Intitule_Filiere }}">
+                        </div>
+                        <div class="col mb-3">
+                            <label class="form-label">Niveau_Filiere</label>
+                            <input type="text" name="Niveau_Filiere" class="form-control" placeholder="Niveau_Filiere" value="{{ $filiere->Niveau_Filiere }}" >
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="d-grid">
+                            <button class="btn btn-warning" type="submit">Modifier</button>
+                        </div>
+                    </div>
+                </form>
+            <!-- End of Main Content -->
+
+           @include('partial.footer')
+            </div>
+        </div>
+    
+    
+@endsection
