@@ -50,6 +50,27 @@
             <span>Jury</span></a>
     </li>
 
+      <!-- Nav Item - Professeur-->
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('professeurs.index')}}">
+            <i class="fas fa-glasses"></i>
+            <span>Professeur</span></a>
+    </li>
+
+    <!-- Nav Item - Filiere-->
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('filieres.index')}}">
+            <i class=""></i>
+            <span>Filiere</span></a>
+    </li>
+
+     <!-- Nav Item - Memoire-->
+     <li class="nav-item">
+        <a class="nav-link" href="{{route('memoires.index')}}">
+            <i class=""></i>
+            <span>Memoire</span></a>
+    </li>
+
     <!-- Nav Item - PV -->
     <li class="nav-item">
         <a class="nav-link" href="{{route('charts')}}">

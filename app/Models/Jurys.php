@@ -9,4 +9,9 @@ class Jurys extends Model
 {
     use HasFactory;
     protected $fillable=['NumJury', 'President', 'Examinateur', 'Rapporteur']; 
+
+    public function etudiants()
+    {
+        return $this->hasMany(Etudiant::class);
+    }
 }

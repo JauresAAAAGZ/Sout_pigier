@@ -34,7 +34,7 @@ class MemoireController extends Controller
         $memoires = new Memoire();
         $memoires->Theme = $request->Theme;
         $memoires->Nombre_Pages = $request->Nombre_Pages;
-       
+        $memoires->Date_Depot = $request->Date_Depot;
        
         $memoires->save();
 
@@ -65,6 +65,7 @@ class MemoireController extends Controller
         $memoires = Memoire::find($memoire->id);
         $memoires->Theme = $request->Theme;
         $memoires->Nombre_Pages = $request->Nombre_Pages;
+        $memoires->Date_Depot = $request->Date_Depot;
        
         $memoires->save();
 

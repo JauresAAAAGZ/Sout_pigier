@@ -34,6 +34,10 @@
                             <label class="form-label">Nombre_Pages</label>
                             <input type="text" name="Nombre_Pages" class="form-control" placeholder="Nombre_Pages" value="{{ $memoire->Nombre_Pages }}" >
                         </div>
+                        <div class="col mb-3">
+                            <label class="form-label">Date_Depot</label>
+                            <input type="date" name="Date_Depot" class="form-control" placeholder="Date_Depot" value="{{ $memoire->Date_Depot }}" >
+                        </div>
                     </div>
                     
                     <div class="row">

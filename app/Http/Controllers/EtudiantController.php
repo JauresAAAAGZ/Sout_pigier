@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Etudiant;
 use App\Http\Requests\StoreEtudiantRequest;
 use App\Http\Requests\UpdateEtudiantRequest;
+use App\Models\Filiere;
+use App\Models\Jurys;
+use App\Models\Memoire;
+use App\Models\Professeur;
 
 class EtudiantController extends Controller
 {
@@ -24,7 +28,11 @@ class EtudiantController extends Controller
     public function create()
     {
         $etudiants=Etudiant::all();
-        return view('admin.Etudiants.create', compact("etudiants"));
+        $filieres=Filiere::all();
+        $memoires=Memoire::all();
+        $professeurs=Professeur::all();
+        $jurys=Jurys::all();
+        return view('admin.Etudiants.create', compact("etudiants", "filieres", "memoires", "professeurs","jurys"));
     }
 
     /**
@@ -38,6 +46,11 @@ class EtudiantController extends Controller
         $etudiants->Prenom = $request->Prenom;
         $etudiants->Niveau_Etude = $request->Niveau_Etude;
         $etudiants->Date_Naissance = $request->Date_Naissance;
+        $etudiants->Lieu_Naissance = $request->Lieu_Naissance;
+        $etudiants->filiere_id=$request->filiere_id;
+        $etudiants->memoire_id=$request->memoire_id;
+        $etudiants->professeur_id=$request->professeur_id;
+        $etudiants->jury_id=$request->jury_id;
         $etudiants->save();
 
         return redirect()->route('etudiants.index');
@@ -48,7 +61,11 @@ class EtudiantController extends Controller
      */
     public function show(Etudiant $etudiant)
     {
-        return view('admin.Etudiants.show', compact('etudiant'));
+        $nom_filiere = Filiere::find($etudiant->filiere_id)->Intitule_Filiere;
+        $nom_memoire = Memoire::find($etudiant->memoire_id)->Theme;
+        $nom_professeur=Professeur::find($etudiant->professeur_id)->Nom_Professeur;
+        $nom_jury=Jurys::find($etudiant->jury_id)->NumJury;
+        return view('admin.Etudiants.show', compact('etudiant', 'nom_filiere', 'nom_memoire', 'nom_professeur','nom_jury'));
     }
 
     /**
@@ -56,7 +73,11 @@ class EtudiantController extends Controller
      */
     public function edit(Etudiant $etudiant)
     {
-        return view('admin.Etudiants.edit', compact('etudiant'));
+        $filieres = Filiere::all();
+        $memoires=Memoire::all();
+        $professeurs=Professeur::all();
+        $jurys=Jurys::all();
+        return view('admin.Etudiants.edit', compact('etudiant', 'filieres', 'memoires', 'professeurs','jurys'));
     }
 
     /**
@@ -70,6 +91,11 @@ class EtudiantController extends Controller
         $etudiants->Prenom = $request->Prenom;
         $etudiants->Niveau_Etude = $request->Niveau_Etude;
         $etudiants->Date_Naissance = $request->Date_Naissance;
+        $etudiants->Lieu_Naissance = $request->Lieu_Naissance;
+        $etudiants->filiere_id = $request->filiere_id;
+        $etudiants->memoire_id=$request->memoire_id;
+        $etudiants->professeur_id=$request->professeur_id;
+        $etudiants->jury_id=$request->jury_id;
         $etudiants->save();
 
         return redirect()->route('etudiants.show', $etudiants);

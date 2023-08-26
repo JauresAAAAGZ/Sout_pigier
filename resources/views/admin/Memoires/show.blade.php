@@ -28,6 +28,7 @@
                     <ul>
                         <li>Theme : '{{$memoire->Theme}}'</li>
                         <li>Nombre_Pages : '{{$memoire->Nombre_Pages}}'</li>
+                        <li>Date_Depot : '{{$memoire->Date_Depot}}'</li>
                         
                     </ul>
                 </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\FiliereController;
 use App\Http\Controllers\JurysController;
 use App\Http\Controllers\MemoireController;
 use App\Http\Controllers\ProfesseurController;
@@ -59,6 +60,7 @@ Route::resource('professeurs', ProfesseurController::class);
 Route::resource('soutenances', SoutenanceController::class);
 Route::resource('pvs', PVController::class);
 Route::resource('memoires', MemoireController::class);
+Route::resource('filieres', FiliereController::class);
 
 
 /*Route::get('/jury', [JurysController::class, 'index'])->name('jurys.index');

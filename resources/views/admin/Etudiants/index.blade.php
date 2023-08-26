@@ -38,6 +38,19 @@
                                             <th>Prenom</th>
                                             <th>Niveau_Etude</th>
                                             <th>Date_Naissance</th>
+                                            <th>Lieu_Naissance</th>
+                                            <th>Filiere</th>
+                                            <th>Theme</th>
+                                            <th>Date de Depot</th>
+                                            <th>Directeur</th>
+                                            <th>Grade-Directeur</th>
+                                            <th>Jury</th>
+                                            <th>Président</th>
+                                            <th>Grade-Président</th>
+                                            <th>Examinateur</th>
+                                            <th>Grade-Examinateur</th>
+                                            <th>Rapporteur</th>
+                                            <th>Grade-Rapporteur</th>
                                             <th>Opérations</th>
                 
                                         </tr>
@@ -73,6 +86,33 @@
                                                 <td>
                                                     {{ $etudiant->Date_Naissance }}
                                                 </td>
+                                                <td>
+                                                    {{ $etudiant->Lieu_Naissance }}
+                                                </td>
+                                                <td>
+                                                    {{ $etudiant->filiere->Intitule_Filiere }}
+
+                                                    
+                                                </td>
+                                                <td>
+                                                    {{ $etudiant->memoire->Theme }}
+                                                </td>
+                                                <td>
+                                                    {{$etudiant->memoire->Date_Depot}}
+                                                </td>
+                                                <td>
+                                                    {{$etudiant->professeur->Nom_Professeur}} {{$etudiant->professeur->Prenom_Professeur}}
+                                                </td>
+                                                <td>
+                                                    {{$etudiant->professeur->Grade}}
+                                                </td>
+                                                <td>{{$etudiant->jury->NumJury}}</td>
+                                                <td>{{$etudiant->jury->President}}</td>
+                                                <td>"""</td>
+                                                <td>{{$etudiant->jury->Examinateur}}</td>
+                                                <td>"""</td>
+                                                <td>{{$etudiant->jury->Rapporteur}}</td>
+                                                <td>"""</td>
                                                 <td>
                                                     <a href="{{ route('etudiants.show', $etudiant) }}" class="btn btn-info">Voir</a>
                                                     <a href="{{ route('etudiants.edit', $etudiant) }}" class="btn btn-primary">Modifier</a>

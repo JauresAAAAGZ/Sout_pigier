@@ -9,4 +9,13 @@ class Filiere extends Model
 {
     use HasFactory;
     protected $fillable=['Intitule_Filiere', 'Niveau_Filiere'];
+
+
+ /**
+     * Get the post that owns the comment.
+     */
+    public function etudiants()
+    {
+        return $this->hasMany(Etudiant::class);
+    }
 }

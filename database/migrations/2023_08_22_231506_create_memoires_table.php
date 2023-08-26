@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('memoires', function (Blueprint $table) {
             $table->id();
             $table->string('Theme');
-            $table->integer('Nombre_Pages');
+            $table->integer('Nombre_Pages')->nullable();
+            $table->date('Date_Depot');
             $table->timestamps();
         });
     }

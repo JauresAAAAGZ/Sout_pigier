@@ -32,14 +32,13 @@
                     <label for="Nom" class="form-label">Nom</label>
                     <input type="text" class="form-control" id="Nom" name="Nom" required>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col mb-3">
                     <label for="Prenom" class="form-label">Prenom</label>
                     <input type="text" class="form-control" id="Prenom" name="Prenom" required>
                 </div>
-
-
+            </div>
+            <div class="row">
+                
                 <div class="col mb-3">
                     <label for="Niveau_Etude" class="form-label">Niveau d'étude</label>
                     <input type="text" class="form-control" id="Niveau_Etude" name="Niveau_Etude" required>
@@ -48,6 +47,54 @@
                     <label for="Date_Naissance" class="form-label">Date de naissance</label>
                     <input type="date" class="form-control" id="Date_Naissance" name="Date_Naissance" required>
                 </div>
+
+                <div class="col mb-3">
+                    <label for="Lieu_Naissance" class="form-label">Lieu de naissance</label>
+                    <input type="text" class="form-control" id="Lieu_Naissance" name="Lieu_Naissance" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="filiere" class="form-label">Filiere</label>
+                    <select name="filiere_id" id="filiere" class="form-control">
+                        @foreach ($filieres as $filiere)
+                        <option value="{{$filiere->id}}" >{{$filiere->Intitule_Filiere}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col mb-3">
+                    <label for="memoire" class="form-label">Memoire</label>
+                    <select name="memoire_id" id="memoire" class="form-control">
+                        @foreach ($memoires as $memoire)
+                        <option value="{{$memoire->id}}" >{{$memoire->Theme}}</option>
+                        @endforeach
+                    </select>
+                </div>
+               
+                
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+
+                    <label for="professeur" class="form-label">Directeur</label>
+                    <select name="professeur_id" id="professeur" class="form-control">
+                        @foreach ($professeurs as $professeur)
+                        <option value="{{$professeur->id}}" >{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                        @endforeach
+                    </select>
+
+                </div>
+                <div class="col mb-3">
+
+                    <label for="jury" class="form-label">Jury</label>
+                    <select name="jury_id" id="jury" class="form-control">
+                        @foreach ($jurys as $jury)
+                        <option value="{{$jury->id}}" >{{$jury->NumJury}}</option>
+                        @endforeach
+                    </select>
+
+                </div>
+               
             </div>
 
            

@@ -33,9 +33,9 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nom_Professeur</th>
-                                            <th>Prenom_Professeur</th>
-                                            <th>Grade</th>
+                                            <th>Theme</th>
+                                            <th>Nombres_Pages</th>
+                                            <th>Date_Depot</th>
                                             <th>Opérations</th>
                 
                                         </tr>
@@ -57,13 +57,13 @@
                                         @foreach($memoires as $memoire)
                                             <tr>
                                                 <td>
-                                                {{ $memoire->Nom_Professeur }}
+                                                {{ $memoire->Theme }}
                                                 </td>
                                                 <td>
-                                                    {{ $memoire->Prenom_Professeur }}
+                                                    {{ $memoire->Nombre_Pages }}
                                                 </td>
                                                 <td>
-                                                    {{ $memoire->Grade }}
+                                                    {{ $memoire->Date_Depot }}
                                                 </td>
                                                
                                                 <td>
