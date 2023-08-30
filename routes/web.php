@@ -69,6 +69,7 @@ Route::get('/jurystore', [JurysController::class, 'store'])->name('jurys.store')
 Route::get('/juryshow/{jurys}', [JurysController::class, 'show'])->name('jurys.show');
 Route::get('/juryedit/{jurys}', [JurysController::class, 'edit'])->name('jurys.edit');
 Route::put('/juryupdate/{jurys}', [JurysController::class, 'update'])->name('jurys.update');
-Route::get('/jurydestroy/{jurys}', [JurysController::class, 'destroy'])->name('jurys.destroy');
+Route::get('/jurydestroy/{jurys} ', [JurysController::class, 'destroy'])->name('jurys.destroy');
+Route::get('/planning', [SoutenanceController::class, 'info'])->name('soutenances.info');
 
 require __DIR__.'/auth.php';

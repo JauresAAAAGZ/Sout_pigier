@@ -9,4 +9,10 @@ class Soutenance extends Model
 {
     use HasFactory;
     protected $fillable=['Date_Soutenance', 'Heure_Soutenance', 'Salle_Soutenance'];
+
+
+    public function etudiants()
+    {
+        return $this->hasMany(Etudiant::class);
+    }
 }

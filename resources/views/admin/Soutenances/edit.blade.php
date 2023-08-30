@@ -28,11 +28,11 @@
                     <div class="row">
                         <div class="col mb-3">
                             <label class="form-label">Date_Soutenance</label>
-                            <input type="text" name="Date_Soutenance" class="form-control" placeholder="Date_Soutenance" value="{{ $soutenance->Date_Soutenance }}">
+                            <input type="date" name="Date_Soutenance" class="form-control" placeholder="Date_Soutenance" value="{{ $soutenance->Date_Soutenance }}">
                         </div>
                         <div class="col mb-3">
                             <label class="form-label">Heure_Soutenance</label>
-                            <input type="text" name="Heure_Soutenance" class="form-control" placeholder="Heure_Soutenance" value="{{ $soutenance->Heure_Soutenance }}" >
+                            <input type="time" name="Heure_Soutenance" class="form-control" placeholder="Heure_Soutenance" value="{{ $soutenance->Heure_Soutenance }}" >
                         </div>
                     </div>
                     <div class="row">

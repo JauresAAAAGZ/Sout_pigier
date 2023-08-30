@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PV;
 use App\Http\Requests\StorePVRequest;
 use App\Http\Requests\UpdatePVRequest;
+use App\Models\Jurys;
 
 class PVController extends Controller
 {
@@ -23,7 +24,8 @@ class PVController extends Controller
     public function create()
     {
         $pvs=Pv::all();
-        return view('admin.Pvs.create', compact("pvs"));
+        $jurys=Jurys::all();
+        return view('admin.Pvs.create', compact("pvs","jurys"));
     }
 
     /**
@@ -33,7 +35,7 @@ class PVController extends Controller
     {
         $pvs = new Pv();
         $pvs->Num_PV = $request->Num_PV;
-       
+        $pvs->jury_id=$request->jury_id;
        
         $pvs->save();
 
@@ -45,7 +47,8 @@ class PVController extends Controller
      */
     public function show(PV $pV)
     {
-        return view('admin.Etudiants.show', compact('pv'));
+        $nom_jury=Jurys::find($pV->jury_id)->NumJury;
+        return view('admin.Etudiants.show', compact('pv','nom_jury'));
     }
 
     /**
@@ -53,7 +56,8 @@ class PVController extends Controller
      */
     public function edit(PV $pV)
     {
-        return view('admin.Etudiants.edit', compact('pv'));
+        $jurys=Jurys::all();
+        return view('admin.Etudiants.edit', compact('pv','jurys'));
     }
 
     /**
@@ -63,7 +67,7 @@ class PVController extends Controller
     {
         $pvs = Pv::find($pV->id);
         $pvs->Num_PV = $request->Num_PV;
-       
+        $pvs->jury_id=$request->jury_id;
        
         $pvs->save();
 

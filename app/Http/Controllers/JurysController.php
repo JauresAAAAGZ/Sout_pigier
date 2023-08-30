@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Jurys;
 use App\Http\Requests\StoreJurysRequest;
 use App\Http\Requests\UpdateJurysRequest;
+use App\Models\Professeur;
 
 class JurysController extends Controller
 {
@@ -23,7 +24,8 @@ class JurysController extends Controller
     public function create()
     {
         $jurys=Jurys::all();
-        return view('admin.jurys.create', compact("jurys"));
+        $professeurs=Professeur::all();
+        return view('admin.jurys.create', compact("jurys", "professeurs"));
     }
 
     /**
@@ -37,6 +39,8 @@ class JurysController extends Controller
         $jurys->Examinateur = $request->Examinateur;
         $jurys->Rapporteur = $request->Rapporteur;
         $jurys->save();
+
+        $jurys->professeurs()->sync($request->professeurs);
 
         return redirect()->route('jurys.index');
     }
@@ -56,9 +60,9 @@ class JurysController extends Controller
      */
     public function edit(Jurys $jurys)
     {
-       
+        $professeurs=Professeur::all();
   
-        return view('admin.jurys.edit', compact('jurys'));
+        return view('admin.jurys.edit', compact('jurys','professeurs'));
     }
 
     /**
@@ -80,6 +84,8 @@ class JurysController extends Controller
         $jurys->Examinateur = $request->Examinateur;
         $jurys->Rapporteur = $request->Rapporteur;
         $jurys->save();
+
+        $jurys->professeurs()->sync($request->professeurs);
 
         return redirect()->route('jurys.show', $jurys);
 

@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col mb-3">
                     <label for="Nom_Professeur" class="form-label">Nom_Professeur</label>
-                    <input type="text" class="form-control" id="Nom_Professeur" name="Nom_Professeur" required>
+                    <input type="text" class="form-control" id="Nom_Professeur" name="Nom_Professeur" required >
                 </div>
 
                 <div class="col mb-3">

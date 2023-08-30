@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('p_v_s', function (Blueprint $table) {
             $table->id();
             $table->string('Num_PV');
+            $table->unsignedBigInteger('jury_id')->nullable();
+            $table->foreign('jury_id')->references('id')->on('jurys');
             $table->timestamps();
         });
     }

@@ -14,6 +14,7 @@ class SoutenanceController extends Controller
     public function index()
     {
         $soutenances = Soutenance::all();
+        
         return view('admin.Soutenances.index', compact('soutenances'));
     }
 
@@ -80,4 +81,14 @@ class SoutenanceController extends Controller
         $soutenance->delete();
         return redirect()->route('soutenances.index');
     }
+
+    public function info()
+    {
+        
+        $soutenances = Soutenance::all();
+        
+        
+        return view('admin.Soutenances.info', compact('soutenances'));
+    }
+
 }

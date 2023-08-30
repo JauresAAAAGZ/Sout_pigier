@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Memoire;
 use App\Http\Requests\StoreMemoireRequest;
 use App\Http\Requests\UpdateMemoireRequest;
+use App\Models\Jurys;
 
 class MemoireController extends Controller
 {
@@ -23,7 +24,8 @@ class MemoireController extends Controller
     public function create()
     {
         $memoires=Memoire::all();
-        return view('admin.Memoires.create', compact("memoires"));
+        $jurys=Jurys::all();
+        return view('admin.Memoires.create', compact("memoires","jurys"));
     }
 
     /**
@@ -35,6 +37,7 @@ class MemoireController extends Controller
         $memoires->Theme = $request->Theme;
         $memoires->Nombre_Pages = $request->Nombre_Pages;
         $memoires->Date_Depot = $request->Date_Depot;
+        $memoires->jury_id=$request->jury_id;
        
         $memoires->save();
 
@@ -46,7 +49,8 @@ class MemoireController extends Controller
      */
     public function show(Memoire $memoire)
     {
-        return view('admin.Etudiants.show', compact('memoire'));
+        $nom_jury=Jurys::find($memoire->jury_id)->NumJury;
+        return view('admin.Etudiants.show', compact('memoire','nom_jury'));
     }
 
     /**
@@ -54,7 +58,8 @@ class MemoireController extends Controller
      */
     public function edit(Memoire $memoire)
     {
-        return view('admin.Etudiants.edit', compact('memoire'));
+        $jurys=Jurys::all();
+        return view('admin.Etudiants.edit', compact('memoire','jurys'));
     }
 
     /**
@@ -66,6 +71,7 @@ class MemoireController extends Controller
         $memoires->Theme = $request->Theme;
         $memoires->Nombre_Pages = $request->Nombre_Pages;
         $memoires->Date_Depot = $request->Date_Depot;
+        $memoires->jury_id=$request->jury_id;
        
         $memoires->save();
 

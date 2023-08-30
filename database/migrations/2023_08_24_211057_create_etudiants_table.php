@@ -20,13 +20,15 @@ return new class extends Migration
             $table->date('Date_Naissance');
             $table->string('Lieu_Naissance');
             $table->unsignedBigInteger('filiere_id')->nullable();
-            $table->foreign('filiere_id')->references('id')->on('filieres');
+            $table->foreign('filiere_id')->references('id')->on('filieres')->onDelete('cascade');
             $table->unsignedBigInteger('memoire_id')->nullable();
-            $table->foreign('memoire_id')->references('id')->on('memoires');
+            $table->foreign('memoire_id')->references('id')->on('memoires')->onDelete('cascade');
             $table->unsignedBigInteger('professeur_id')->nullable();
-            $table->foreign('professeur_id')->references('id')->on('professeurs');
+            $table->foreign('professeur_id')->references('id')->on('professeurs')->onDelete('cascade');
             $table->unsignedBigInteger('jury_id')->nullable();
-            $table->foreign('jury_id')->references('id')->on('jurys');
+            $table->foreign('jury_id')->references('id')->on('jurys')->onDelete('cascade');
+            $table->unsignedBigInteger('soutenance_id')->nullable();
+            $table->foreign('soutenance_id')->references('id')->on('soutenances')->onDelete('cascade');
             $table->timestamps();
         });
     }

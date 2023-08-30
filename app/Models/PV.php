@@ -9,4 +9,9 @@ class PV extends Model
 {
     use HasFactory;
     protected $fillable=['Num_PV'];
+
+    public function jury()
+    {
+        return $this->belongsTo(Jurys::class);
+    }
 }
