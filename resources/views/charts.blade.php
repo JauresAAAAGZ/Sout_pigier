@@ -2,181 +2,344 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>SB Admin 2 - Charts</title>
-
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Additional styles for your PV -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        padding: 20px;
+        }
+
+        body {
+            color: black;
+            width: 35cm; 
+            height: 15cm; 
+            margin: 0;
+            padding: 27;
+        }
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 95%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+        .no-border th, .no-border td {
+            border: none;
+        }
+        .rowspan {
+            vertical-align: middle;
+        }
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 </head>
-
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- Sidebar -->
         @include('partial.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
             <div id="content">
-
                 <!-- Topbar -->
                 @include('partial.header')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Procès Verbal</h1>
-                            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                    class="fas fa-download fa-sm text-white-50"></i> Generer PV</a>
-                            </div>
-                    <!--<p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme.
-                        The charts below have been customized - for further customization options, please visit the <a
-                        target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js
-                         documentation</a>.</p>-->
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <div class="col-xl-8 col-lg-7">
-
-                            <!-- Area Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                    <hr>
-                                    Styling for the area chart can be found in the
-                                    <code>/js/demo/chart-area-demo.js</code> file.
-                                </div>
-                            </div>
-
-                            <!-- Bar Chart -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-bar">
-                                        <canvas id="myBarChart"></canvas>
-                                    </div>
-                                    <hr>
-                                    Styling for the bar chart can be found in the
-                                    <code>/js/demo/chart-bar-demo.js</code> file.
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- Donut Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <hr>
-                                    Styling for the donut chart can be found in the
-                                    <code>/js/demo/chart-pie-demo.js</code> file.
-                                </div>
-                            </div>
-                        </div>
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Procès Verbal</h1>
+                        <button id="convertButton" class="btn btn-primary">Generer PV</button>
                     </div>
 
-                </div>
-                <!-- /.container-fluid -->
+<div id="elementToConvert" style="font-size: 14px;">
+    <h1 style="font-size: 27px;">PROCES-VERBAL DE SOUTENANCE DE MEMOIRE</h1><br/>
+    <div class="left" style="float: left; width: 50%;" style="font-size: 36px;">Autorisée par la Note de Service N°</div>
+    <div class="right" style="float: left; width: 40%;" style="font-size: 16px;">MESRS/DGES/DOSES/SEPES/DSPI/SA</div><br/>
+    <p><br>Diplôme       : Licence Professionnelle</p>
+    <p>Spécialité : </p>
+    <p><div class="left" style="float: left; width: 25%;" style="font-size: 36px;">Session de Mai 2023</div>
+    <div class="center" style="float: left; width: 26%;" style="font-size: 26px;"><p>N° du jury : </div>
+    <div class="right" style="float: left; width: 18.70%;" style="font-size: 26px;">Salle : </div>
+    </p><br>
+    <br><p><div class="left" style="float: left; width: 50%;" style="font-size: 26px;">Date de Soutenance : </div>
+    <div class="right" style="float: left; width: 20.60%;" style="font-size: 26px;">Heure : </div></p><br>
 
-            </div>
-            <!-- End of Main Content -->
+    <br/><table>
+        <thead>
+            <tr>
+                <th style="width: 3%;" class="center" style="color: black";>N° Matricule de l’Etudiant(e)</th>
+                <th style="width: 1.5%;" class="center"> : </th>
+                <th style="width: 0.5%;" class="center"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nom et Prenom(s)</td>
+                <td class="center" style="color: black;"> : </td>
+                <td><p></p> <p></p> <p></p> <p></p></td>
+            </tr>
+            <tr>
+                <td>Date et Lieu de Naissance</td>
+                <td class="center" style="color: black;"> : </td>
+                <td><p></p> <p></p> <p></p> <p></p></td>
+            </tr>
+            <tr>
+                <td>Thème</td>
+                 <td class="center" style="color: black;"> : </td>
+                 <td></td>
+            </tr>
+	    <tr>
+                <td>Pièce d’identité (Carte d’identité/Passeport/etc.)</td>
+                 <td class="center" style="color: black;"> : </td>
+                 <td><p></p> <p></p> <p></p> <p></p></td>
+            </tr>
+	   <tr>
+                <td>Signature de l’Etudiant(e)</td>
+                 <td class="center" style="color: black;"> : </td>
+                 <td><p></p> <p></p> <p></p> <p></p></td>
+            </tr>
+        </tbody>
+    </table><br>
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+    <table>
+    <tr>
+        <th style="width: 3%;">NOTE D’OBSERVATIONS SUR LES CRITÈRES D’ÉVALUATION</th>
+        <th style="width: 1.5%;">OBSERVATIONS</th>
+        <th style="width: 0.5%;">NOTE</th>
+    </tr>
+    <tr>
+        <td>1. Forme du Mémoire</td>
+        <td rowspan="4"></td>
+        <td rowspan="4" class="center" style="color: black;"><hr style="background-color: black; height: 2px; border: none;">04,00</td>
+    </tr>
+    <tr>
+        <td>1.1. Esthétique du Document<br>Propreté - Lisibilité - Page de Garde, Qualité des illustrations: Tableaux- Graphiques. Chiffres-etc.</td>
+        
+    </tr>
+    <tr>
+        <td>1.2. Structure du Document<br>Rubriques obligatoires- Articulation et Proportion des Parties-Chapitres Introduction. Conclusion, etc.</td>
+        
+    </tr>
+    <tr>
+        <td>1.3. Rédaction<br>Orthographe, Grammaire, Style, Syntaxe, etc.</td>
+        
+    </tr>
+    <tr>
+        <td>2. Fond du Mémoire</td>
+        <td rowspan="4"></td>
+        <td rowspan="4" class="center"style="color: black;"><hr style="background-color: black; height: 2px; border: none;">06,00</td>
+    </tr>
+    <tr>
+        <td>2.1. Maîtrise de la Problématique et de la Littérature</td>
+        
+    </tr>
+    <tr>
+        <td>2.2. Rigueur Méthodologique<br>Orthographe, Grammaire, Style, Syntaxe, etc.</td>
+        
+    </tr>
+    <tr>
+        <td>2.3. Pertinence des Résultats<br>Pour la Structure d’Accueil, la Société</td>
+        
+    </tr>
+    <tr>
+        <td>3. Exposé du Candidat (Speech)</td>
+        <td rowspan="4"></td>
+        <td rowspan="4" class="center" style="color: black;"><hr style="background-color: black; height: 2px; border: none;">05,00</td>
+    </tr>
+    <tr>
+        <td>3.1. Qualité des Supports de Présentation<br>Powerpoint, Réalisations telles que: Application développée Solution inventée, etc.</td>
+        
+    </tr>
+    <tr>
+        <td>3.2 Rigueur du Raisonnement<br>Cohérence, Logique de l’Exposé, clarté, Précision, Diction, Correction de l’Expression, etc.</td>
+        
+    </tr>
+    <tr>
+        <td>3.3. Gestion du Temps et Expression Corporelle</td>
+        
+    </tr>
+    <tr>
+        <td>4. Défense du Mémoire par le Candidat</td>
+        <td rowspan="4"></td>
+        <td rowspan="4" class="center" style="color: black;"><hr style="background-color: black; height: 2px; border: none;">05,00</td>
+    </tr>
+    <tr>
+        <td>4.1. Expression corporelle<br>Tenue, aisance, courtoisie...</td>
+        
+    </tr>
+    <tr>
+        <td>4.2. Réponse aux Questions<br>Précision, Concision, Justesse, etc.</td>
+        
+    </tr>
+    <tr>
+        <td>4.3. Gestion de Situations difficiles lors de la Soutenance<br>Observations Complémentaires du Jury</td>
+        
+    </tr>
+    <tr>
+        <td class="center" rowspan="4">Observations Complémentaires du Jury</td>
+        <td rowspan="4"></td>
+        <td rowspan="4" class="center" style="color: black;">20,00</td>
+    </tr>
+    
+</table><br>
 
-        </div>
-        <!-- End of Content Wrapper -->
 
+<h2 class="center" style="font-size: 12px;">Mention (Cochez la case en dessous la mention)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="center">Excellent [18-20]</th>
+                <th class="center">Très-Bien [16-18[</th>
+                <th class="center">Bien [14-16[</th>
+                <th class="center">Assez-Bien [12-14[</th>
+		        <th class="center">Passable [10-12[</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><p></p> <p></p> <p></p> <p></p></td>
+                <td><p></p> <p></p> <p></p> <p></p></td>
+                <td><p></p> <p></p> <p></p> <p></p></td>
+                <td><p></p> <p></p> <p></p> <p></p></td>
+		        <td><p></p> <p></p> <p></p> <p></p></td>
+            
+        </tbody>
+    </table><br>
+
+    <p class="center">Cotonou, le ...........................................................................................................................................................</p>
+
+    <h2 class="left" style="font-size: 12px;">Fonction, Signature, NOM, Prénoms, Grade (Master/Ingénieur/Docteur/MA/MC/PT) des membres du Jury</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Fonction</th>
+                <th>Examinateur</th>
+                <th>Rapporteur</th>
+                <th>Président</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Signature</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>NOM et Prénoms</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Grade</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
     </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
+                <!-- End of Content Wrapper -->
             </div>
+            <!-- End of Page Wrapper -->
         </div>
     </div>
+</div>
 
-    <!-- Bootstrap core JavaScript-->
+    <!-- Footer 
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Pigier 2023</span>
+            </div>
+        </div>
+    </footer>
+     End of Footer -->
+
+    <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
+    <!-- Core plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
+    <!-- Custom scripts for all pages -->
     <script src="js/sb-admin-2.min.js"></script>
-
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
-
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/demo/chart-bar-demo.js"></script>
 
+    <script>
+        document.getElementById('convertButton').addEventListener('click', function() {
+            const element = document.getElementById('elementToConvert');
+    
+            html2pdf()
+      .from(element)
+      .save('pv.pdf');
+      const pdfOptions = {
+    margin: { top: 100, right: 10, bottom: 100, left: 10 }, // Ajustez les marges selon vos besoins
+    filename: 'pv.pdf',
+    image: { type: 'png', quality: 0.98 },
+    html2canvas: { scale: 2 },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+};
+   
+        });
+    
+</script>
+
+   
 </body>
 
 </html>

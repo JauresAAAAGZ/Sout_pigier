@@ -72,3 +72,9 @@ Route::put('/juryupdate/{jurys}', [JurysController::class, 'update'])->name('jur
 Route::get('/jurydestroy/{jurys}', [JurysController::class, 'destroy'])->name('jurys.destroy');
 
 require __DIR__.'/auth.php';
+
+Route::get('/generate-pdf', function () {
+    return view('pdfview');
+});
+
+
