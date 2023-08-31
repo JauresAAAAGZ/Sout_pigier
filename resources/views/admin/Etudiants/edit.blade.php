@@ -108,7 +108,7 @@
                             <label for="soutenance" class="form-label">Soutenance</label>
                             <select name="soutenance_id" id="soutenance" class="form-control">
                                 @foreach ($soutenances as $soutenance)
-                                <option value="{{$soutenance->id}}" >{{$soutenance->Date_Soutenance}}</option>
+                                <option value="{{$soutenance->id}}" >{{$soutenance->id}}</option>
                                 @endforeach
                             </select>
         

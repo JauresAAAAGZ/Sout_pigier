@@ -46,7 +46,7 @@ class FiliereController extends Controller
      */
     public function show(Filiere $filiere)
     {
-        return view('admin.Etudiants.show', compact('filiere'));
+        return view('admin.Filieres.show', compact('filiere'));
     }
 
     /**
@@ -54,7 +54,7 @@ class FiliereController extends Controller
      */
     public function edit(Filiere $filiere)
     {
-        return view('admin.Etudiants.edit', compact('filiere'));
+        return view('admin.Filieres.edit', compact('filiere'));
     }
 
     /**

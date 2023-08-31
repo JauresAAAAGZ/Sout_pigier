@@ -33,7 +33,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            
+                                            <th>Soutenance N°</th>
                                             <th>Date_Soutenance</th>
                                             <th>Heure_Soutenance</th>
                                             <th>Salle_Soutenance</th>
@@ -58,7 +58,9 @@
                                     <tbody>
                                         @foreach($soutenances as $soutenance)
                                             <tr>
-                                               
+                                               <td>
+                                                {{ $soutenance->id }}
+                                               </td>
                                                 <td>
                                                 {{ $soutenance->Date_Soutenance }}
                                                 </td>

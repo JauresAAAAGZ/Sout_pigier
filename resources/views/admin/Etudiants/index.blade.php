@@ -122,6 +122,7 @@
                                                 <td>
                                                     <a href="{{ route('etudiants.show', $etudiant) }}" class="btn btn-info">Voir</a>
                                                     <a href="{{ route('etudiants.edit', $etudiant) }}" class="btn btn-primary">Modifier</a>
+                                                    <a href="{{ route('etudiants.infopv', $etudiant) }}" class="btn btn-warning">PV</a>
                                                     <form action="{{ url('/etudiants/'.$etudiant->id) }}" method="POST" style="display: inline;">
                                                         @csrf
                                                         @method('DELETE')

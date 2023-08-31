@@ -50,7 +50,7 @@ class MemoireController extends Controller
     public function show(Memoire $memoire)
     {
         $nom_jury=Jurys::find($memoire->jury_id)->NumJury;
-        return view('admin.Etudiants.show', compact('memoire','nom_jury'));
+        return view('admin.Memoires.show', compact('memoire','nom_jury'));
     }
 
     /**
@@ -59,7 +59,7 @@ class MemoireController extends Controller
     public function edit(Memoire $memoire)
     {
         $jurys=Jurys::all();
-        return view('admin.Etudiants.edit', compact('memoire','jurys'));
+        return view('admin.Memoires.edit', compact('memoire','jurys'));
     }
 
     /**

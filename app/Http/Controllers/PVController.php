@@ -48,7 +48,7 @@ class PVController extends Controller
     public function show(PV $pV)
     {
         $nom_jury=Jurys::find($pV->jury_id)->NumJury;
-        return view('admin.Etudiants.show', compact('pv','nom_jury'));
+        return view('admin.Pvs.show', compact('pv','nom_jury'));
     }
 
     /**
@@ -57,7 +57,7 @@ class PVController extends Controller
     public function edit(PV $pV)
     {
         $jurys=Jurys::all();
-        return view('admin.Etudiants.edit', compact('pv','jurys'));
+        return view('admin.Pvs.edit', compact('pv','jurys'));
     }
 
     /**

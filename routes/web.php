@@ -71,5 +71,6 @@ Route::get('/juryedit/{jurys}', [JurysController::class, 'edit'])->name('jurys.e
 Route::put('/juryupdate/{jurys}', [JurysController::class, 'update'])->name('jurys.update');
 Route::get('/jurydestroy/{jurys} ', [JurysController::class, 'destroy'])->name('jurys.destroy');
 Route::get('/planning', [SoutenanceController::class, 'info'])->name('soutenances.info');
+Route::get('/pv/{etudiant}', [EtudiantController::class, 'infopv'])->name('etudiants.infopv');
 
 require __DIR__.'/auth.php';

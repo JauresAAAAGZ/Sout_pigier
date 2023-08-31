@@ -51,7 +51,7 @@ class ProfesseurController extends Controller
     public function show(Professeur $professeur)
     {
        
-        return view('admin.Etudiants.show', compact('professeur'));
+        return view('admin.Professeurs.show', compact('professeur'));
     }
 
     /**
@@ -60,7 +60,7 @@ class ProfesseurController extends Controller
     public function edit(Professeur $professeur)
     {
         //$jurys=Jurys::all();
-        return view('admin.Etudiants.edit', compact('professeur'));
+        return view('admin.Professeurs.edit', compact('professeur'));
     }
 
     /**

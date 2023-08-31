@@ -47,7 +47,7 @@ class SoutenanceController extends Controller
      */
     public function show(Soutenance $soutenance)
     {
-        return view('admin.Etudiants.show', compact('soutenance'));
+        return view('admin.Soutenances.show', compact('soutenance'));
     }
 
     /**
@@ -55,7 +55,7 @@ class SoutenanceController extends Controller
      */
     public function edit(Soutenance $soutenance)
     {
-        return view('admin.Etudiants.edit', compact('soutenance'));
+        return view('admin.Soutenances.edit', compact('soutenance'));
     }
 
     /**
