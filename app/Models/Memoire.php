@@ -15,4 +15,10 @@ class Memoire extends Model
     {
         return $this->hasMany(Etudiant::class);
     }
+
+    public function jury()
+    {
+        return $this->belongsTo(Jurys::class);
+    }
+
 }

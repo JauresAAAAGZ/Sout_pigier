@@ -34,7 +34,10 @@ class Etudiant extends Model
         return $this->belongsTo(Jurys::class);
     }
 
-
+    public function soutenance()
+    {
+        return $this->belongsTo(Soutenance::class);
+    }
 
 }
 

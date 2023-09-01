@@ -25,12 +25,12 @@
             <div class="row">
                 <div class="col mb-3">
                     <label for="Date_Soutenance" class="form-label">Date_Soutenance</label>
-                    <input type="text" class="form-control" id="Date_Soutenance" name="Date_Soutenance" required>
+                    <input type="date" class="form-control" id="Date_Soutenance" name="Date_Soutenance" required>
                 </div>
 
                 <div class="col mb-3">
                     <label for="Heure_Soutenance" class="form-label">Heure_Soutenance</label>
-                    <input type="text" class="form-control" id="Heure_Soutenance" name="Heure_Soutenance" required>
+                    <input type="time" class="form-control" id="Heure_Soutenance" name="Heure_Soutenance" required>
                 </div>
             </div>
             <div class="row">

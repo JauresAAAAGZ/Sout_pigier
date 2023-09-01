@@ -14,4 +14,22 @@ class Jurys extends Model
     {
         return $this->hasMany(Etudiant::class);
     }
+
+   
+
+    public function pvs()
+    {
+        return $this->hasMany(PV::class);
+    }
+
+    public function memoires()
+    {
+        return $this->hasMany(Memoire::class);
+    }
+
+
+    public function professeurs()
+    {
+        return $this->belongsToMany(Professeur::class);
+    }
 }

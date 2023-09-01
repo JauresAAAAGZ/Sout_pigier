@@ -34,10 +34,15 @@
             <span>Liste des étudiants</span></a>
     </li>
 
-    
-    <!-- Nav Item - Programme-->
     <li class="nav-item">
-        <a class="nav-link" href="{{route('tables')}}">
+        <a class="nav-link" href="{{route('soutenances.index')}}">
+            <i class="fas fa-book"></i>
+            <span>Soutenance</span></a>
+    </li>
+    
+    <!-- Nav Item - Planning/Soutenance-->
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('soutenances.info')}}">
             <i class="far fa-calendar-alt"></i>
             <span>Planning</span></a>
     </li>
@@ -60,16 +65,17 @@
     <!-- Nav Item - Filiere-->
     <li class="nav-item">
         <a class="nav-link" href="{{route('filieres.index')}}">
-            <i class=""></i>
+            <i class="fas fa-user-friends"></i>
             <span>Filiere</span></a>
     </li>
 
      <!-- Nav Item - Memoire-->
      <li class="nav-item">
         <a class="nav-link" href="{{route('memoires.index')}}">
-            <i class=""></i>
+            <i class="fas fa-book"></i>
             <span>Memoire</span></a>
     </li>
+   
 
     <!-- Nav Item - PV -->
     <li class="nav-item">

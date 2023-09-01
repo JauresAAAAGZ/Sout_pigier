@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Professeur;
 use App\Http\Requests\StoreProfesseurRequest;
 use App\Http\Requests\UpdateProfesseurRequest;
+use App\Models\Jurys;
 
 class ProfesseurController extends Controller
 {
@@ -23,7 +24,8 @@ class ProfesseurController extends Controller
     public function create()
     {
         $professeurs=Professeur::all();
-        return view('admin.Professeurs.create', compact("professeurs"));
+        //$jurys=Jurys::all();
+        return view('admin.Professeurs.create', compact("professeurs",));
     }
 
     /**
@@ -35,8 +37,10 @@ class ProfesseurController extends Controller
         $professeurs->Nom_Professeur = $request->Nom_Professeur;
         $professeurs->Prenom_Professeur = $request->Prenom_Professeur;
         $professeurs->Grade = $request->Grade;
-       
+        
         $professeurs->save();
+
+       // $professeurs->jurys()->sync($request->jurys);
 
         return redirect()->route('professeurs.index');
     }
@@ -46,7 +50,8 @@ class ProfesseurController extends Controller
      */
     public function show(Professeur $professeur)
     {
-        return view('admin.Etudiants.show', compact('professeur'));
+       
+        return view('admin.Professeurs.show', compact('professeur'));
     }
 
     /**
@@ -54,7 +59,8 @@ class ProfesseurController extends Controller
      */
     public function edit(Professeur $professeur)
     {
-        return view('admin.Etudiants.edit', compact('professeur'));
+        //$jurys=Jurys::all();
+        return view('admin.Professeurs.edit', compact('professeur'));
     }
 
     /**
@@ -67,7 +73,10 @@ class ProfesseurController extends Controller
         $professeurs->Prenom_Professeur = $request->Prenom_Professeur;
         $professeurs->Grade = $request->Grade;
        
+
         $professeurs->save();
+
+        $professeurs->jurys()->sync($request->jurys);
 
         return redirect()->route('professeurs.show', $professeurs);
     }

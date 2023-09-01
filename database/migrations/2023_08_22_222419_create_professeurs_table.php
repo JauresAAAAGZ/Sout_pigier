@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('Nom_Professeur');
             $table->string('Prenom_Professeur');
             $table->string('Grade');
+            $table->unsignedBigInteger('jury_id')->nullable();
+            $table->foreign('jury_id')->references('id')->on('jurys');
             $table->timestamps();
         });
     }

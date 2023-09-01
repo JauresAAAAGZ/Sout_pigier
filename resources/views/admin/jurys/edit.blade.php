@@ -31,18 +31,30 @@
                             <input type="text" name="NumJury" class="form-control" placeholder="NumJury" value="{{ $jurys->NumJury }}">
                         </div>
                         <div class="col mb-3">
-                            <label class="form-label">President</label>
-                            <input type="text" name="President" class="form-control" placeholder="President" value="{{ $jurys->President }}" >
+                            <label for="President" class="form-label">President</label>
+                            <select name="President" id="President" class="form-control">
+                                @foreach ($professeurs as $professeur)
+                                <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col mb-3">
-                            <label class="form-label">Examinateur</label>
-                            <input type="text" name="Examinateur" class="form-control" placeholder="Examinateur" value="{{ $jurys->Examinateur }}">
+                            <label for="Examinateur" class="form-label">Examinateur</label>
+                            <select name="Examinateur" id="Examinateur" class="form-control">
+                                @foreach ($professeurs as $professeur)
+                                <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col mb-3">
-                            <label class="form-label">Rapporteur</label>
-                            <input type="text" name="Rapporteur" class="form-control" placeholder="Rapporteur" value="{{ $jurys->Rapporteur }}">
+                            <label for="Rapporteur" class="form-label">Rapporteur</label>
+                            <select name="Rapporteur" id="Rapporteur" class="form-control">
+                                @foreach ($professeurs as $professeur)
+                                <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row">

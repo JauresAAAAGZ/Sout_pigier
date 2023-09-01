@@ -51,6 +51,9 @@
                                             <th>Grade-Examinateur</th>
                                             <th>Rapporteur</th>
                                             <th>Grade-Rapporteur</th>
+                                            <th>Date</th>
+                                            <th>Heure</th>
+                                            <th>Salle</th>
                                             <th>Opérations</th>
                 
                                         </tr>
@@ -74,6 +77,7 @@
                                                 <td>
                                                 {{ $etudiant->Matricule }}
                                                 </td>
+                                                
                                                 <td>
                                                     {{ $etudiant->Nom }}
                                                 </td>
@@ -91,8 +95,6 @@
                                                 </td>
                                                 <td>
                                                     {{ $etudiant->filiere->Intitule_Filiere }}
-
-                                                    
                                                 </td>
                                                 <td>
                                                     {{ $etudiant->memoire->Theme }}
@@ -113,10 +115,15 @@
                                                 <td>"""</td>
                                                 <td>{{$etudiant->jury->Rapporteur}}</td>
                                                 <td>"""</td>
+                                                <td>{{$etudiant->soutenance->Date_Soutenance}}</td>
+                                                <td>{{$etudiant->soutenance->Heure_Soutenance}}</td>
+                                                <td>{{$etudiant->soutenance->Salle_Soutenance}}</td>
+                                               
                                                 <td>
 
                                                     <a href="{{ route('etudiants.show', $etudiant) }}" class="btn btn-info">Voir</a>
                                                     <a href="{{ route('etudiants.edit', $etudiant) }}" class="btn btn-primary">Modifier</a>
+                                                    <a href="{{ route('etudiants.infopv', $etudiant) }}" class="btn btn-warning">PV</a>
                                                     <form action="{{ url('/etudiants/'.$etudiant->id) }}" method="POST" style="display: inline;">
                                                         @csrf
                                                         @method('DELETE')
@@ -130,6 +137,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                
                             </div>
                         </div>
                     </div>

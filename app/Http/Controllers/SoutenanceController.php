@@ -14,6 +14,7 @@ class SoutenanceController extends Controller
     public function index()
     {
         $soutenances = Soutenance::all();
+        
         return view('admin.Soutenances.index', compact('soutenances'));
     }
 
@@ -46,7 +47,7 @@ class SoutenanceController extends Controller
      */
     public function show(Soutenance $soutenance)
     {
-        return view('admin.Etudiants.show', compact('soutenance'));
+        return view('admin.Soutenances.show', compact('soutenance'));
     }
 
     /**
@@ -54,7 +55,7 @@ class SoutenanceController extends Controller
      */
     public function edit(Soutenance $soutenance)
     {
-        return view('admin.Etudiants.edit', compact('soutenance'));
+        return view('admin.Soutenances.edit', compact('soutenance'));
     }
 
     /**
@@ -80,4 +81,14 @@ class SoutenanceController extends Controller
         $soutenance->delete();
         return redirect()->route('soutenances.index');
     }
+
+    public function info()
+    {
+        
+        $soutenances = Soutenance::all();
+        
+        
+        return view('admin.Soutenances.info', compact('soutenances'));
+    }
+
 }

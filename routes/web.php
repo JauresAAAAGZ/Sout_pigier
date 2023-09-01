@@ -70,7 +70,7 @@ Route::get('/juryshow/{jurys}', [JurysController::class, 'show'])->name('jurys.s
 Route::get('/juryedit/{jurys}', [JurysController::class, 'edit'])->name('jurys.edit');
 Route::put('/juryupdate/{jurys}', [JurysController::class, 'update'])->name('jurys.update');
 Route::get('/jurydestroy/{jurys}', [JurysController::class, 'destroy'])->name('jurys.destroy');
-Route::get('/info_PV/{etudiant}', [EtudiantController::class, 'info_PV'])->name('info.pv');
+
 require __DIR__.'/auth.php';
 
 Route::get('/generate-pdf', function () {

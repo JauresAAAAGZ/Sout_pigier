@@ -14,4 +14,13 @@ class Professeur extends Model
     {
         return $this->hasMany(Etudiant::class);
     }
+
+
+   
+
+    public function jurys()
+    {
+        return $this->belongsToMany(Jurys::class);
+    }
+
 }

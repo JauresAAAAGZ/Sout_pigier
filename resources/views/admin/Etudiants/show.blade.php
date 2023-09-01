@@ -23,7 +23,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="mb-0">Info Jurys</h1>
+                    <h1 class="mb-0">Info Etudiant</h1>
                     <hr/>
                     <ul>
                         <li>Matricule : {{$etudiant->Matricule}}</li>
@@ -44,6 +44,9 @@
                         <li>"""</li>
                         <li>Rapporteur: {{$etudiant->jury->Rapporteur}}</li>
                         <li>"""</li>
+                        <li>Date Soutenance : {{$etudiant->soutenance->Date_Soutenance}}</li>
+                        <li>Heure Soutenance : {{$etudiant->soutenance->Heure_Soutenance}}</li>
+                        <li>Salle Soutenance : {{$etudiant->soutenance->Salle_Soutenance}}</li>
                     </ul>
                 </div>
             <!-- End of Main Content -->

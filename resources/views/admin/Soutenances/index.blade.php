@@ -33,6 +33,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>Soutenance N°</th>
                                             <th>Date_Soutenance</th>
                                             <th>Heure_Soutenance</th>
                                             <th>Salle_Soutenance</th>
@@ -53,9 +54,13 @@
                                             <th>Rapporteur</th>
                                         </tr>
                                     </tfoot>-->
+                                    
                                     <tbody>
                                         @foreach($soutenances as $soutenance)
                                             <tr>
+                                               <td>
+                                                {{ $soutenance->id }}
+                                               </td>
                                                 <td>
                                                 {{ $soutenance->Date_Soutenance }}
                                                 </td>
@@ -66,6 +71,7 @@
                                                     {{ $soutenance->Salle_Soutenance }}
                                                 </td>
                                                
+                                                
                                                 <td>
                                                     <a href="{{ route('soutenances.show', $soutenance) }}" class="btn btn-info">Voir</a>
                                                     <a href="{{ route('soutenances.edit', $soutenance) }}" class="btn btn-primary">Modifier</a>

@@ -25,24 +25,36 @@
             <div class="row">
                 <div class="col mb-3">
                     <label for="NumJury" class="form-label">NumJury</label>
-                    <input type="text" class="form-control" id="NumJury" name="NumJury" required>
+                    <input type="text" class="form-control" id="NumJury" name="NumJury" value="{{old('NumJury')}}" required>
                 </div>
 
                 <div class="col mb-3">
-                    <label for="President" class="form-label">Président</label>
-                    <input type="text" class="form-control" id="President" name="President" required>
+                    <label for="President" class="form-label">President</label>
+                    <select name="President" id="President" class="form-control">
+                        @foreach ($professeurs as $professeur)
+                        <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="row">
                 <div class="col mb-3">
                     <label for="Examinateur" class="form-label">Examinateur</label>
-                    <input type="text" class="form-control" id="Examinateur" name="Examinateur" required>
+                    <select name="Examinateur" id="Examinateur" class="form-control">
+                        @foreach ($professeurs as $professeur)
+                        <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
 
                 <div class="col mb-3">
                     <label for="Rapporteur" class="form-label">Rapporteur</label>
-                    <input type="text" class="form-control" id="Rapporteur" name="Rapporteur" required>
+                    <select name="Rapporteur" id="Rapporteur" class="form-control">
+                        @foreach ($professeurs as $professeur)
+                        <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
