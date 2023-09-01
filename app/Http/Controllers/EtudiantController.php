@@ -109,4 +109,10 @@ class EtudiantController extends Controller
         $etudiant->delete();
         return redirect()->route('etudiants.index');
     }
+
+    public function info_PV(Etudiant $etudiant)
+    {
+        
+        return view('charts', compact('etudiant'));
+    }
 }

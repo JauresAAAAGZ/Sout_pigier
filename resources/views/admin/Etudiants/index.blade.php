@@ -114,6 +114,7 @@
                                                 <td>{{$etudiant->jury->Rapporteur}}</td>
                                                 <td>"""</td>
                                                 <td>
+
                                                     <a href="{{ route('etudiants.show', $etudiant) }}" class="btn btn-info">Voir</a>
                                                     <a href="{{ route('etudiants.edit', $etudiant) }}" class="btn btn-primary">Modifier</a>
                                                     <form action="{{ url('/etudiants/'.$etudiant->id) }}" method="POST" style="display: inline;">
@@ -121,7 +122,9 @@
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger">Supprimer</button>
                                                     </form>
+                                                    <a href="{{ route('info.pv', $etudiant) }}" class="btn btn-warning">Generer PV</a>
                                                 </td>
+                                                
                         
                                             </tr>
                                         @endforeach
