@@ -34,6 +34,11 @@ class MemoireController extends Controller
     public function store(StoreMemoireRequest $request)
     {
         $memoires = new Memoire();
+        $validatedData = $request->validate([
+            'Theme'=>'required|unique:memoires|min:6|max:100',
+            
+            'Date_Depot'=>'required',
+        ]);
         $memoires->Theme = $request->Theme;
         $memoires->Nombre_Pages = $request->Nombre_Pages;
         $memoires->Date_Depot = $request->Date_Depot;
@@ -68,6 +73,12 @@ class MemoireController extends Controller
     public function update(UpdateMemoireRequest $request, Memoire $memoire)
     {
         $memoires = Memoire::find($memoire->id);
+        $validatedData = $request->validate([
+            'Theme'=>'required|min:6|max:100',
+            
+            'Date_Depot'=>'required'
+            
+        ]);
         $memoires->Theme = $request->Theme;
         $memoires->Nombre_Pages = $request->Nombre_Pages;
         $memoires->Date_Depot = $request->Date_Depot;

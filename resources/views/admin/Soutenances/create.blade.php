@@ -27,11 +27,17 @@
                 <div class="col mb-3">
                     <label for="Nom_Soutenance" class="form-label">Nom_Soutenance</label>
                     <input type="text" class="form-control" id="Nom_Soutenance" name="Nom_Soutenance" required>
+                    @error('Nom_Soutenance')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
                 
                 <div class="col mb-3">
                     <label for="Date_Soutenance" class="form-label">Date_Soutenance</label>
                     <input type="date" class="form-control" id="Date_Soutenance" name="Date_Soutenance" required>
+                    @error('Date_Soutenance')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
 
                
@@ -40,10 +46,16 @@
                 <div class="col mb-3">
                     <label for="Salle_Soutenance" class="form-label">Salle_Soutenance</label>
                     <input type="text" class="form-control" id="Salle_Soutenance" name="Salle_Soutenance" required>
+                    @error('Salle_Soutenance')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
                 <div class="col mb-3">
                     <label for="Heure_Soutenance" class="form-label">Heure_Soutenance</label>
                     <input type="time" class="form-control" id="Heure_Soutenance" name="Heure_Soutenance" required>
+                    @error('Heure_Soutenance')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
             </div>
 

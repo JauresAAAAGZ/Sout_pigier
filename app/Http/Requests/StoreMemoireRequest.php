@@ -22,7 +22,27 @@ class StoreMemoireRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'Theme'=>'required|unique:memoires|min:6|max:100',
+            
+            'Date_Depot'=>'required'
+            
+        ];
+    }
+
+
+    public function messages()
+    {
+        return [
+            'Theme.unique'=>'Ce theme est déjà utilisé',
+            'Theme.required'=>'Le theme est obligatoire',
+            'Theme.min'=>'Le theme doit contenir au moins 6 caractères. Exemple: Memoire 01',
+            'Theme.max'=>'Le theme doit contenir au maximum 100 caractères',
+            
+            'Date_Depot.required'=>'La date de dépot est obligatoire',
+            
+           
+            
+
         ];
     }
 }

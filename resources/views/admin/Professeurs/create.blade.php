@@ -26,17 +26,26 @@
                 <div class="col mb-3">
                     <label for="Nom_Professeur" class="form-label">Nom_Professeur</label>
                     <input type="text" class="form-control" id="Nom_Professeur" name="Nom_Professeur" required >
+                    @error('Nom_Professeur')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
 
                 <div class="col mb-3">
                     <label for="Prenom_Professeur" class="form-label">Prenom_Professeur</label>
                     <input type="text" class="form-control" id="Prenom_Professeur" name="Prenom_Professeur" required>
+                    @error('Prenom_Professeur')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
             </div>
             <div class="row">
                 <div class="col mb-3">
                     <label for="Grade" class="form-label">Grade</label>
                     <input type="text" class="form-control" id="Grade" name="Grade" required>
+                    @error('Grade')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
 
             </div>

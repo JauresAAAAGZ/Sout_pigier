@@ -26,6 +26,9 @@
                 <div class="col mb-3">
                     <label for="NumJury" class="form-label">NumJury</label>
                     <input type="text" class="form-control" id="NumJury" name="NumJury" value="{{old('NumJury')}}" required>
+                    @error('NumJury')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
 
                 <div class="col mb-3">

@@ -29,14 +29,23 @@
                         <div class="col mb-3">
                             <label class="form-label">Matricule</label>
                             <input type="text" name="Matricule" class="form-control" placeholder="Matricule" value="{{ $etudiant->Matricule }}">
+                            @error('Matricule')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                         <div class="col mb-3">
                             <label class="form-label">Nom</label>
                             <input type="text" name="Nom" class="form-control" placeholder="Nom" value="{{ $etudiant->Nom }}" >
+                            @error('Nom')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                         <div class="col mb-3">
                             <label class="form-label">Prenom</label>
                             <input type="text" name="Prenom" class="form-control" placeholder="Prenom" value="{{ $etudiant->Prenom }}">
+                            @error('Prenom')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                     </div>
                     <div class="row">
@@ -44,14 +53,23 @@
                         <div class="col mb-3">
                             <label class="form-label">Niveau d'étude</label>
                             <input type="text" name="Niveau_Etude" class="form-control" placeholder="Niveau d'étude" value="{{ $etudiant->Niveau_Etude }}">
+                            @error('Niveau_Etude')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                         <div class="col mb-3">
                             <label class="form-label">Date de naissance</label>
                             <input type="date" name="Date_Naissance" class="form-control" placeholder="Date_Naissance" value="{{ $etudiant->Date_Naissance }}">
+                            @error('Date_Naissance')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                         <div class="col mb-3">
                             <label class="form-label">Lieu de naissance</label>
                             <input type="text" name="Lieu_Naissance" class="form-control" placeholder="Lieu_Naissance" value="{{ $etudiant->Lieu_Naissance }}">
+                            @error('Lieu_Naissance')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                        
                     </div>

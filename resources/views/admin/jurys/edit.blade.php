@@ -29,6 +29,9 @@
                         <div class="col mb-3">
                             <label class="form-label">NumJury</label>
                             <input type="text" name="NumJury" class="form-control" placeholder="NumJury" value="{{ $jurys->NumJury }}">
+                            @error('NumJury')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                         <div class="col mb-3">
                             <label for="President" class="form-label">President</label>

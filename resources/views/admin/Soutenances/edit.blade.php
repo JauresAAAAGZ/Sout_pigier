@@ -30,11 +30,17 @@
                         <div class="col mb-3">
                             <label class="form-label">Nom_Soutenance</label>
                             <input type="text" name="Nom_Soutenance" class="form-control" placeholder="Nom_Soutenance" value="{{ $soutenance->Nom_Soutenance }}">
+                            @error('Nom_Soutenance')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
 
                         <div class="col mb-3">
                             <label class="form-label">Date_Soutenance</label>
                             <input type="date" name="Date_Soutenance" class="form-control" placeholder="Date_Soutenance" value="{{ $soutenance->Date_Soutenance }}">
+                            @error('Date_Soutenance')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                        
                     </div>
@@ -43,11 +49,17 @@
                         <div class="col mb-3">
                             <label class="form-label">Heure_Soutenance</label>
                             <input type="time" name="Heure_Soutenance" class="form-control" placeholder="Heure_Soutenance" value="{{ $soutenance->Heure_Soutenance }}" >
+                            @error('Heure_Soutenance')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
 
                         <div class="col mb-3">
                             <label class="form-label">Salle_Soutenance</label>
                             <input type="text" name="Salle_Soutenance" class="form-control" placeholder="Salle_Soutenance" value="{{ $soutenance->Salle_Soutenance }}">
+                            @error('Salle_Soutenance')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                         
                     </div>

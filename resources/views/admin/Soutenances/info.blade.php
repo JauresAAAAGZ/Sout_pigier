@@ -69,8 +69,13 @@
                                         @foreach($soutenances as $soutenance)
                                             <tr>
                                                 <td>
-                                                    @if ($soutenance->etudiants->first()->jury)
-                                                        {{$soutenance->etudiants->first()->jury->NumJury}}
+                                                    @if ($soutenance->etudiants->first())
+                                                        
+                                                   
+                                                        @if ($soutenance->etudiants->first()->jury)
+                                                            {{$soutenance->etudiants->first()->jury->NumJury}}
+                                                        @endif
+                                                    
                                                     @endif
                                                 </td>
                                                 <td>
@@ -89,21 +94,48 @@
                                                     
                                                 </td>
                                                 <td> 
+                                                    @if ($soutenance->etudiants->first())
+                                                        @if ($soutenance->etudiants->first()->memoire)
+                                                        {{$soutenance->etudiants->first()->memoire->Theme}}
+                                                        @endif
+                                                    @endif
                                                     
-                                                    {{$soutenance->etudiants->first()->memoire->Theme}}
+                                                   
                                                     
                                                 </td>
                                                 <td>
-                                                    {{$soutenance->etudiants->first()->professeur->Nom_Professeur}} {{$soutenance->etudiants->first()->professeur->Prenom_Professeur}}
+                                                    @if ($soutenance->etudiants->first())
+                                                        @if ($soutenance->etudiants->first()->professeur)
+                                                        {{$soutenance->etudiants->first()->professeur->Nom_Professeur}} {{$soutenance->etudiants->first()->professeur->Prenom_Professeur}}
+                                                        @endif
+                                                    @endif
+                                                   
                                                 </td>
                                                 <td>
-                                                    {{$soutenance->etudiants->first()->jury->President}}
+                                                    @if ($soutenance->etudiants->first())
+                                                        @if ($soutenance->etudiants->first()->jury)
+                                                        
+                                                        {{$soutenance->etudiants->first()->jury->President}}
+                                                            
+                                                        @endif
+                                                    @endif
+                                                 
                                                 </td>
                                                 <td>
-                                                    {{$soutenance->etudiants->first()->jury->Examinateur}}
+                                                    @if ($soutenance->etudiants->first())
+                                                        @if ($soutenance->etudiants->first()->jury)
+                                                        {{$soutenance->etudiants->first()->jury->Examinateur}}
+                                                        @endif
+                                                    @endif
+                                                   
                                                 </td>
                                                 <td>
-                                                    {{$soutenance->etudiants->first()->jury->Rapporteur}}
+                                                    @if ($soutenance->etudiants->first())
+                                                        @if ($soutenance->etudiants->first()->jury)
+                                                        {{$soutenance->etudiants->first()->jury->Rapporteur}}
+                                                        @endif
+                                                    @endif
+                                                   
                                                 </td>
                                                                       
                                             </tr>

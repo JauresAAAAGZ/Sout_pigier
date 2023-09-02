@@ -22,7 +22,22 @@ class UpdateJurysRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'NumJury'=>'required|min:6|max:100',
+            'President'=>'required',
+            'Examinateur'=>'required', 
+            'Rapporteur'=>'required'
+        ];
+    }
+
+
+    public function messages()
+    {
+        return [
+            'NumJury.required'=>'Le numéro de jury est obligatoire',
+            'NumJury.min'=>'Le numéro de jury doit contenir au moins 06 caractères. Exemple: Jury 01',
+            'NumJury.max'=>'Le numéro de jury doit contenir au maximum 100 caractères',
+            
+
         ];
     }
 }

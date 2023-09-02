@@ -26,15 +26,24 @@
                 <div class="col mb-3">
                     <label for="Matricule" class="form-label">Matricule</label>
                     <input type="text" class="form-control" id="Matricule" name="Matricule" required>
+                    @error('Matricule')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="col mb-3">
                     <label for="Nom" class="form-label">Nom</label>
                     <input type="text" class="form-control" id="Nom" name="Nom" required>
+                    @error('Nom')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
                 <div class="col mb-3">
                     <label for="Prenom" class="form-label">Prenom</label>
                     <input type="text" class="form-control" id="Prenom" name="Prenom" required>
+                    @error('Prenom')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
             </div>
             <div class="row">
@@ -42,15 +51,24 @@
                 <div class="col mb-3">
                     <label for="Niveau_Etude" class="form-label">Niveau d'étude</label>
                     <input type="text" class="form-control" id="Niveau_Etude" name="Niveau_Etude" required>
+                    @error('Niveau_Etude')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
                 <div class="col mb-3">
                     <label for="Date_Naissance" class="form-label">Date de naissance</label>
                     <input type="date" class="form-control" id="Date_Naissance" name="Date_Naissance" required>
+                    @error('Date_Naissance')
+                     <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="col mb-3">
                     <label for="Lieu_Naissance" class="form-label">Lieu de naissance</label>
                     <input type="text" class="form-control" id="Lieu_Naissance" name="Lieu_Naissance" required>
+                    @error('Lieu_Naissance')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
                 </div>
             </div>
             <div class="row">

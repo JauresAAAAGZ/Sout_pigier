@@ -33,6 +33,12 @@ class SoutenanceController extends Controller
     public function store(StoreSoutenanceRequest $request)
     {
         $soutenances = new Soutenance();
+        $validatedData = $request->validate([
+            'Nom_Soutenance'=>'required|unique:soutenances|min:12|max:100',
+            'Date_Soutenance'=>'required', 
+            'Heure_Soutenance'=>'required', 
+            'Salle_Soutenance'=>'required|min:7|max:100'
+        ]);
         $soutenances->Nom_Soutenance = $request->Nom_Soutenance;
         $soutenances->Date_Soutenance = $request->Date_Soutenance;
         $soutenances->Heure_Soutenance = $request->Heure_Soutenance;
@@ -65,6 +71,12 @@ class SoutenanceController extends Controller
     public function update(UpdateSoutenanceRequest $request, Soutenance $soutenance)
     {
         $soutenances = Soutenance::find($soutenance->id);
+        $validatedData = $request->validate([
+            'Nom_Soutenance'=>'required|min:12|max:100',
+            'Date_Soutenance'=>'required', 
+            'Heure_Soutenance'=>'required', 
+            'Salle_Soutenance'=>'required|min:7|max:100'
+        ]);
         $soutenances->Nom_Soutenance = $request->Nom_Soutenance;
         $soutenances->Date_Soutenance = $request->Date_Soutenance;
         $soutenances->Heure_Soutenance = $request->Heure_Soutenance;

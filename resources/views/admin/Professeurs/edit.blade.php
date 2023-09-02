@@ -29,16 +29,25 @@
                         <div class="col mb-3">
                             <label class="form-label">Nom_Professeur</label>
                             <input type="text" name="Nom_Professeur" class="form-control" placeholder="Nom_Professeur" value="{{ $professeur->Nom_Professeur }}">
+                            @error('Nom_Professeur')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                         <div class="col mb-3">
                             <label class="form-label">Prenom_Professeur</label>
                             <input type="text" name="Prenom_Professeur" class="form-control" placeholder="Prenom_Professeur" value="{{ $professeur->Prenom_Professeur }}" >
+                            @error('Prenom_Professeur')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                     </div>
                     <div class="row">
                         <div class="col mb-3">
                             <label class="form-label">Grade</label>
                             <input type="text" name="Grade" class="form-control" placeholder="Grade" value="{{ $professeur->Grade }}">
+                            @error('Grade')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                         
                     </div>

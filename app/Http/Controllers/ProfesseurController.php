@@ -25,7 +25,7 @@ class ProfesseurController extends Controller
     {
         $professeurs=Professeur::all();
         //$jurys=Jurys::all();
-        return view('admin.Professeurs.create', compact("professeurs","jurys"));
+        return view('admin.Professeurs.create', compact("professeurs"));
     }
 
     /**

@@ -26,12 +26,18 @@
                 <div class="col mb-3">
                     <label for="Intitule_Filiere" class="form-label">Intitule_Filiere</label>
                     <input type="text" class="form-control" id="Intitule_Filiere" name="Intitule_Filiere" required>
-                </div>
+                    @error('Intitule_Filiere')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
+                  </div>
 
                 <div class="col mb-3">
                     <label for="Niveau_Filiere" class="form-label">Niveau_Filiere</label>
                     <input type="text" class="form-control" id="Niveau_Filiere" name="Niveau_Filiere" required>
-                </div>
+                    @error('Niveau_Filiere')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
+                  </div>
             </div>
             
            

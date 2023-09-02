@@ -26,16 +26,25 @@
                 <div class="col mb-3">
                     <label for="Theme" class="form-label">Theme</label>
                     <input type="text" class="form-control" id="Theme" name="Theme" required>
-                </div>
+                    @error('Theme')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
+                  </div>
 
                 <div class="col mb-3">
                     <label for="Nombre_Pages" class="form-label">Nombre_Pages</label>
                     <input type="text" class="form-control" id="Nombre_Pages" name="Nombre_Pages">
-                </div>
+                    @error('Nombre_Pages')
+                    <p class="text-red-500">{{ $message }}</p>
+                   @enderror
+                  </div>
                 <div class="col mb-3">
                   <label for="Date_Depot" class="form-label">Date_Depot</label>
                   <input type="date" class="form-control" id="Date_Depot" name="Date_Depot" required>
-              </div>
+                  @error('Date_Depot')
+                  <p class="text-red-500">{{ $message }}</p>
+                 @enderror
+                </div>
             </div>
                        
             <button type="submit" class="btn btn-primary">Créer le memoire</button>

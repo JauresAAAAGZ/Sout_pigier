@@ -29,14 +29,23 @@
                         <div class="col mb-3">
                             <label class="form-label">Theme</label>
                             <input type="text" name="Theme" class="form-control" placeholder="Theme" value="{{ $memoire->Theme }}">
+                            @error('Theme')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                         <div class="col mb-3">
                             <label class="form-label">Nombre_Pages</label>
                             <input type="text" name="Nombre_Pages" class="form-control" placeholder="Nombre_Pages" value="{{ $memoire->Nombre_Pages }}" >
+                            @error('Nombre_Pages')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                         <div class="col mb-3">
                             <label class="form-label">Date_Depot</label>
                             <input type="date" name="Date_Depot" class="form-control" placeholder="Date_Depot" value="{{ $memoire->Date_Depot }}" >
+                            @error('Date_Depot')
+                            <p class="text-red-500">{{ $message }}</p>
+                           @enderror
                         </div>
                     </div>
                     

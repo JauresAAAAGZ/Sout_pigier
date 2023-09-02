@@ -45,6 +45,13 @@ class EtudiantController extends Controller
     public function store(StoreEtudiantRequest $request)
     {
         $etudiants = new Etudiant();
+        $validatedData = $request->validate([
+            'Matricule'=> 'required|unique:etudiants|min:3|max:100',
+            'Date_Naissance' => 'date',
+            'Nom' => 'required|min:3|max:100',
+            'Prenom' => 'required|min:3|max:100',
+            'Niveau_Etude' => 'required|min:6', 
+        ]);
         $etudiants->Matricule = $request->Matricule;
         $etudiants->Nom = $request->Nom;
         $etudiants->Prenom = $request->Prenom;
@@ -93,6 +100,13 @@ class EtudiantController extends Controller
     public function update(UpdateEtudiantRequest $request, Etudiant $etudiant)
     {
         $etudiants = Etudiant::find($etudiant->id);
+        $validatedData = $request->validate([
+            'Matricule'=> 'required|min:3|max:100',
+            'Date_Naissance' => 'date',
+            'Nom' => 'required|min:3|max:100',
+            'Prenom' => 'required|min:3|max:100',
+            'Niveau_Etude' => 'required|min:6', 
+        ]);
         $etudiants->Matricule = $request->Matricule;
         $etudiants->Nom = $request->Nom;
         $etudiants->Prenom = $request->Prenom;

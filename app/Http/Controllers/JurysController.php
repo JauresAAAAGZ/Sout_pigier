@@ -34,6 +34,12 @@ class JurysController extends Controller
     public function store(StoreJurysRequest $request)
     {
         $jurys = new Jurys();
+        $validatedData = $request->validate([
+            'NumJury'=>'required|unique:jurys|min:6|max:100',
+            'President'=>'required',
+            'Examinateur'=>'required', 
+            'Rapporteur'=>'required'
+        ]);
         $jurys->NumJury = $request->NumJury;
         $jurys->President = $request->President;
         $jurys->Examinateur = $request->Examinateur;
@@ -79,6 +85,12 @@ class JurysController extends Controller
 
 
         $jurys = Jurys::find($jurys->id);
+        $validatedData = $request->validate([
+            'NumJury'=>'required|min:6|max:100',
+            'President'=>'required',
+            'Examinateur'=>'required', 
+            'Rapporteur'=>'required'
+        ]);
         $jurys->NumJury = $request->NumJury;
         $jurys->President = $request->President;
         $jurys->Examinateur = $request->Examinateur;
