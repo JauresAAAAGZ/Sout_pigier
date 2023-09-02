@@ -50,7 +50,7 @@ class JurysController extends Controller
      */
     public function show(Jurys $jurys)
     {
-  
+        //dd($jurys->president->Nom_Professeur,$jurys->president->Grade);
         return view('admin.jurys.show', compact('jurys'));
         
     }

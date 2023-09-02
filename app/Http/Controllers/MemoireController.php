@@ -49,8 +49,8 @@ class MemoireController extends Controller
      */
     public function show(Memoire $memoire)
     {
-        $nom_jury=Jurys::find($memoire->jury_id)->NumJury;
-        return view('admin.Memoires.show', compact('memoire','nom_jury'));
+        //$nom_jury=Jurys::find($memoire->jury_id)->NumJury;
+        return view('admin.Memoires.show', compact('memoire'));
     }
 
     /**

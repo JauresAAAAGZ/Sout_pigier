@@ -27,9 +27,9 @@
                     <hr/>
                     <ul>
                         <li>N° Jury: '{{$jurys->NumJury}}'</li>
-                        <li>President: '{{$jurys->President}}'</li>
-                        <li>Examinateur: '{{$jurys->Examinateur}}'</li>
-                        <li>Rapporteur: '{{ $jurys->Rapporteur }}'</li>
+                        <li>President: '{{$jurys->president->Nom_Professeur}} {{$jurys->president->Prenom_Professeur}}'</li>
+                        <li>Examinateur: '{{$jurys->examinateur->Nom_Professeur}} {{$jurys->examinateur->Prenom_Professeur}}'</li>
+                        <li>Rapporteur: '{{ $jurys->rapporteur->Nom_Professeur }} {{ $jurys->rapporteur->Prenom_Professeur }}'</li>
                     </ul>
                 </div>
             <!-- End of Main Content -->

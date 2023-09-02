@@ -26,7 +26,7 @@
                     <h1 class="mb-0">Info Soutenances</h1>
                     <hr/>
                     <ul>
-                        <li>Soutenance N°:  '{{ $soutenance->id }}'</li>
+                        <li>Soutenance N°:  '{{ $soutenance->Nom_Soutenance }}'</li>
                         <li>Date_Soutenance : '{{$soutenance->Date_Soutenance}}'</li>
                         <li>Heure_Soutenance : '{{$soutenance->Heure_Soutenance}}'</li>
                         <li>Salle_Soutenance : '{{$soutenance->Salle_Soutenance}}'</li>

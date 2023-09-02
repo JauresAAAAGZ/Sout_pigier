@@ -94,30 +94,95 @@
                                                     {{ $etudiant->Lieu_Naissance }}
                                                 </td>
                                                 <td>
+                                                    @if ($etudiant->filiere)
                                                     {{ $etudiant->filiere->Intitule_Filiere }}
+                                                    @endif
                                                 </td>
                                                 <td>
+                                                    @if ($etudiant->memoire)
                                                     {{ $etudiant->memoire->Theme }}
+                                                    @endif
                                                 </td>
                                                 <td>
+                                                    @if ($etudiant->memoire)
                                                     {{$etudiant->memoire->Date_Depot}}
+                                                    @endif
                                                 </td>
                                                 <td>
+                                                    @if ($etudiant->professeur)
                                                     {{$etudiant->professeur->Nom_Professeur}} {{$etudiant->professeur->Prenom_Professeur}}
+                                                    @endif
                                                 </td>
                                                 <td>
+                                                    @if ($etudiant->professeur)
                                                     {{$etudiant->professeur->Grade}}
+                                                    @endif
+                                                        
+                                                   
                                                 </td>
-                                                <td>{{$etudiant->jury->NumJury}}</td>
-                                                <td>{{$etudiant->jury->President}}</td>
-                                                <td>"""</td>
-                                                <td>{{$etudiant->jury->Examinateur}}</td>
-                                                <td>"""</td>
-                                                <td>{{$etudiant->jury->Rapporteur}}</td>
-                                                <td>"""</td>
-                                                <td>{{$etudiant->soutenance->Date_Soutenance}}</td>
-                                                <td>{{$etudiant->soutenance->Heure_Soutenance}}</td>
-                                                <td>{{$etudiant->soutenance->Salle_Soutenance}}</td>
+                                                <td>
+                                                    @if ($etudiant->jury)
+                                                    {{$etudiant->jury->NumJury}}
+                                                    @endif
+                                                </td>
+
+                                                <td>
+                                                    @if ($etudiant->jury)
+                                                    {{$etudiant->jury->president->Nom_Professeur}} {{$etudiant->jury->president->Prenom_Professeur}}
+                                                    @endif
+                                                </td>
+
+                                                <td>
+                                                 @if ($etudiant->jury)
+                                                 {{$etudiant->jury->president->Grade}}
+                                                 @endif
+                                                </td>
+
+                                                <td>
+                                                    @if ($etudiant->jury)
+                                                    {{$etudiant->jury->examinateur->Nom_Professeur}} {{$etudiant->jury->examinateur->Prenom_Professeur}}
+                                                        
+                                                    @endif
+                                                </td>
+
+                                                <td>
+                                                    @if ($etudiant->jury)
+                                                    {{$etudiant->jury->examinateur->Grade}}
+                                                    @endif
+                                                </td>
+
+                                                <td>
+                                                    @if ($etudiant->jury)
+                                                    {{$etudiant->jury->rapporteur->Nom_Professeur}} {{$etudiant->jury->rapporteur->Prenom_Professeur}}
+                                                        
+                                                    @endif
+                                                </td>
+
+                                                <td>
+                                                    @if ($etudiant->jury)
+                                                    {{$etudiant->jury->rapporteur->Grade}}
+                                                        
+                                                    @endif
+                                                </td>
+
+                                                <td>
+                                                    @if ($etudiant->soutenance)
+                                                    {{$etudiant->soutenance->Date_Soutenance}}
+                                                        
+                                                    @endif
+                                                </td>
+
+                                                <td>
+                                                    @if ($etudiant->soutenance)
+                                                        {{$etudiant->soutenance->Heure_Soutenance}}
+                                               
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if($etudiant->soutenance)
+                                                    {{$etudiant->soutenance->Salle_Soutenance}}
+                                                    @endif
+                                                </td>
                                                
                                                 <td>
                                                     <a href="{{ route('etudiants.show', $etudiant) }}" class="btn btn-info">Voir</a>

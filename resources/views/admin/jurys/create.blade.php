@@ -32,7 +32,7 @@
                     <label for="President" class="form-label">President</label>
                     <select name="President" id="President" class="form-control">
                         @foreach ($professeurs as $professeur)
-                        <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                        <option value="{{$professeur->id}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -42,7 +42,7 @@
                     <label for="Examinateur" class="form-label">Examinateur</label>
                     <select name="Examinateur" id="Examinateur" class="form-control">
                         @foreach ($professeurs as $professeur)
-                        <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                        <option value="{{$professeur->id}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -52,7 +52,7 @@
                     <label for="Rapporteur" class="form-label">Rapporteur</label>
                     <select name="Rapporteur" id="Rapporteur" class="form-control">
                         @foreach ($professeurs as $professeur)
-                        <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                        <option value="{{$professeur->id}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
                         @endforeach
                     </select>
                 </div>

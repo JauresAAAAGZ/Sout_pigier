@@ -21,8 +21,9 @@
             </div>
             <!-- End of Main Content -->
 
-    @include('partial.footer')
+   
     </div>
+    @include('partial.footer')
     </div>
 
 @endsection

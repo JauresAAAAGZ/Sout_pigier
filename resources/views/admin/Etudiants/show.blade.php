@@ -32,21 +32,96 @@
                         <li>Niveau d'étude : {{ $etudiant->Niveau_Etude }}</li>
                         <li>Date de naissance : {{ $etudiant->Date_Naissance }}</li>
                         <li>Lieu de naissance : {{ $etudiant->Lieu_Naissance }}</li>
-                        <li>Filiere : {{ $etudiant->filiere->Intitule_Filiere }}</li>
-                        <li>Theme : {{ $etudiant->memoire->Theme}}</li>
-                        <li>Date de depot: {{$etudiant->memoire->Date_Depot}}</li>
-                        <li>Directeur: {{$etudiant->professeur->Nom_Professeur}} {{$etudiant->professeur->Prenom_Professeur}}</li>
-                        <li>Grade Directeur: {{$etudiant->professeur->Grade}}</li>
-                        <li>Jury: {{$etudiant->jury->NumJury}}</li>
-                        <li>Président: {{$etudiant->jury->President}}</li>
-                        <li>Grade Président: """</li>
-                        <li>Examinateur : {{$etudiant->jury->Examinateur}}</li>
-                        <li>"""</li>
-                        <li>Rapporteur: {{$etudiant->jury->Rapporteur}}</li>
-                        <li>"""</li>
-                        <li>Date Soutenance : {{$etudiant->soutenance->Date_Soutenance}}</li>
-                        <li>Heure Soutenance : {{$etudiant->soutenance->Heure_Soutenance}}</li>
-                        <li>Salle Soutenance : {{$etudiant->soutenance->Salle_Soutenance}}</li>
+
+                        <li>Filiere : 
+                            @if ($etudiant->filiere)
+                                {{ $etudiant->filiere->Intitule_Filiere }}
+                            @endif
+                        </li>
+
+                        <li>Theme : 
+                            @if ($etudiant->memoire)
+                            {{ $etudiant->memoire->Theme}}
+                            @endif
+                        </li>
+
+                        <li>Date de depot: 
+                            @if ($etudiant->memoire)
+                                {{$etudiant->memoire->Date_Depot}}
+                            @endif
+                        </li>
+
+                        <li>Directeur: 
+                            @if ($etudiant->professeur)
+                                {{$etudiant->professeur->Nom_Professeur}} {{$etudiant->professeur->Prenom_Professeur}}
+                            @endif
+                        </li>
+
+                        <li>Grade Directeur: 
+                            @if ($etudiant->professeur)
+                                {{$etudiant->professeur->Grade}}
+                            @endif
+                        </li>
+
+                        <li>Jury: 
+                            @if ($etudiant->jury)
+                                {{$etudiant->jury->NumJury}}
+                            @endif
+                        </li>
+
+                        <li>Président: 
+                            @if ($etudiant->jury)
+                            {{$etudiant->jury->president->Nom_Professeur}} {{$etudiant->jury->president->Prenom_Professeur}}
+                            @endif
+                        </li>
+
+                        <li>Grade Président: 
+                            @if ($etudiant->jury)
+                            {{$etudiant->jury->president->Grade}}
+                            @endif
+                        </li>
+
+                        <li>Examinateur : 
+                            @if ($etudiant->jury)
+                            {{$etudiant->jury->examinateur->Nom_Professeur}} {{$etudiant->jury->examinateur->Prenom_Professeur}}
+                            @endif
+                        </li>
+                        
+                        <li>Grade Examinateur :
+                            @if ($etudiant->jury)
+                            {{$etudiant->jury->examinateur->Grade}}
+                            @endif
+                        </li>
+
+                        <li>Rapporteur: 
+                            @if ($etudiant->jury)
+                                {{$etudiant->jury->Rapporteur}}
+                            @endif
+                        </li>
+
+                        <li>Grade Rapporteur : 
+                            @if ($etudiant->jury)
+                                {{$etudiant->jury->rapporteur->Grade}}
+                            @endif
+                        </li>
+
+                        <li>Date Soutenance : 
+                            @if ($etudiant->soutenance)
+                                {{$etudiant->soutenance->Date_Soutenance}}
+                            @endif
+                        </li>
+
+                        <li>Heure Soutenance : 
+                            @if ($etudiant->soutenance)
+                                {{$etudiant->soutenance->Heure_Soutenance}}
+                            @endif 
+                        </li>
+
+                        <li>Salle Soutenance : 
+                            @if ($etudiant->soutenance)
+                                {{$etudiant->soutenance->Salle_Soutenance}}
+                            @endif
+                        </li>
                     </ul>
                 </div>
             <!-- End of Main Content -->

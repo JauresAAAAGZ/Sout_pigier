@@ -32,4 +32,21 @@ class Jurys extends Model
     {
         return $this->belongsToMany(Professeur::class);
     }
+
+
+    public function president()
+    {
+        return $this->belongsto(Professeur::class,"President");
+    }
+
+    public function examinateur()
+    {
+        return $this->belongsto(Professeur::class,"Examinateur");
+    }
+
+    public function rapporteur()
+    {
+        return $this->belongsto(Professeur::class,"Rapporteur");
+    }
+
 }

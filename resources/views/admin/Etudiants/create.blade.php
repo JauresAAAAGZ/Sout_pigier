@@ -57,6 +57,7 @@
                 <div class="col mb-3">
                     <label for="filiere" class="form-label">Filiere</label>
                     <select name="filiere_id" id="filiere" class="form-control">
+                        <option disabled selected value> Choisir une filière</option>
                         @foreach ($filieres as $filiere)
                         <option value="{{$filiere->id}}" >{{$filiere->Intitule_Filiere}}</option>
                         @endforeach
@@ -65,6 +66,7 @@
                 <div class="col mb-3">
                     <label for="memoire" class="form-label">Memoire</label>
                     <select name="memoire_id" id="memoire" class="form-control">
+                        <option disabled selected value> Choisir un Memoire</option>
                         @foreach ($memoires as $memoire)
                         <option value="{{$memoire->id}}" >{{$memoire->Theme}}</option>
                         @endforeach
@@ -78,6 +80,7 @@
 
                     <label for="professeur" class="form-label">Directeur</label>
                     <select name="professeur_id" id="professeur" class="form-control">
+                        <option disabled selected value> Choisir une Directeur</option>
                         @foreach ($professeurs as $professeur)
                         <option value="{{$professeur->id}}" >{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
                         @endforeach
@@ -88,6 +91,7 @@
 
                     <label for="jury" class="form-label">Jury</label>
                     <select name="jury_id" id="jury" class="form-control">
+                        <option disabled selected value> Choisir un Jury</option>
                         @foreach ($jurys as $jury)
                         <option value="{{$jury->id}}" >{{$jury->NumJury}}</option>
                         @endforeach
@@ -98,8 +102,9 @@
 
                     <label for="soutenance" class="form-label">Soutenance</label>
                     <select name="soutenance_id" id="soutenance" class="form-control">
+                        <option disabled selected value> Choisir l'ordre de Soutenance</option>
                         @foreach ($soutenances as $soutenance)
-                        <option value="{{$soutenance->id}}" >{{$soutenance->id}}</option>
+                        <option value="{{$soutenance->id}}" >{{$soutenance->Nom_Soutenance}}</option>
                         @endforeach
                     </select>
 

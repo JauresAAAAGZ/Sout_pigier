@@ -33,6 +33,7 @@ class SoutenanceController extends Controller
     public function store(StoreSoutenanceRequest $request)
     {
         $soutenances = new Soutenance();
+        $soutenances->Nom_Soutenance = $request->Nom_Soutenance;
         $soutenances->Date_Soutenance = $request->Date_Soutenance;
         $soutenances->Heure_Soutenance = $request->Heure_Soutenance;
         $soutenances->Salle_Soutenance = $request->Salle_Soutenance;
@@ -64,6 +65,7 @@ class SoutenanceController extends Controller
     public function update(UpdateSoutenanceRequest $request, Soutenance $soutenance)
     {
         $soutenances = Soutenance::find($soutenance->id);
+        $soutenances->Nom_Soutenance = $request->Nom_Soutenance;
         $soutenances->Date_Soutenance = $request->Date_Soutenance;
         $soutenances->Heure_Soutenance = $request->Heure_Soutenance;
         $soutenances->Salle_Soutenance = $request->Salle_Soutenance;

@@ -59,7 +59,7 @@
                                         @foreach($soutenances as $soutenance)
                                             <tr>
                                                <td>
-                                                {{ $soutenance->id }}
+                                                {{ $soutenance->Nom_Soutenance }}
                                                </td>
                                                 <td>
                                                 {{ $soutenance->Date_Soutenance }}

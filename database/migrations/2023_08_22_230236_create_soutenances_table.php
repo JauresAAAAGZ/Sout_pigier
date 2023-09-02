@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('soutenances', function (Blueprint $table) {
             $table->id();
+            $table->string('Nom_Soutenance');
             $table->date('Date_Soutenance');
             $table->time('Heure_Soutenance');
             $table->string('Salle_Soutenance');

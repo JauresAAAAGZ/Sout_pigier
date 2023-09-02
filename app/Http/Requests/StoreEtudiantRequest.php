@@ -22,7 +22,12 @@ class StoreEtudiantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'Matricule'=> 'required|unique:etudiants|min:3|max:100',
+            'Nom' => 'required|min:3|max:100',
+            'Prenom' => 'required|min:3|max:100',
+            'Niveau_Etude' => 'required', 
+            'Date_Naissance' => 'required', 
+            'Lieu_Naissance' => 'required'
         ];
     }
 }

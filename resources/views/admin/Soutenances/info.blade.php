@@ -69,7 +69,9 @@
                                         @foreach($soutenances as $soutenance)
                                             <tr>
                                                 <td>
-                                                    {{$soutenance->etudiants->first()->jury->NumJury}}
+                                                    @if ($soutenance->etudiants->first()->jury)
+                                                        {{$soutenance->etudiants->first()->jury->NumJury}}
+                                                    @endif
                                                 </td>
                                                 <td>
                                                 {{ $soutenance->Date_Soutenance }}

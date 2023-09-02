@@ -66,12 +66,12 @@ class EtudiantController extends Controller
      */
     public function show(Etudiant $etudiant)
     {
-        $nom_filiere = Filiere::find($etudiant->filiere_id)->Intitule_Filiere;
-        $nom_memoire = Memoire::find($etudiant->memoire_id)->Theme;
-        $date_soutenance = Soutenance::find($etudiant->soutenance_id)->Date_Soutenance;
-        $nom_professeur=Professeur::find($etudiant->professeur_id)->Nom_Professeur;
-        $nom_jury=Jurys::find($etudiant->jury_id)->NumJury;
-        return view('admin.Etudiants.show', compact('etudiant', 'nom_filiere', 'nom_memoire','date_soutenance', 'nom_professeur','nom_jury'));
+        //$nom_filiere = Filiere::find($etudiant->filiere_id)->Intitule_Filiere;
+        //$nom_memoire = Memoire::find($etudiant->memoire_id)->Theme;
+        //$date_soutenance = Soutenance::find($etudiant->soutenance_id)->Date_Soutenance;
+        //$nom_professeur=Professeur::find($etudiant->professeur_id)->Nom_Professeur;
+        //$nom_jury=Jurys::find($etudiant->jury_id)->NumJury;
+        return view('admin.Etudiants.show', compact('etudiant'));
     }
 
     /**
@@ -121,11 +121,11 @@ class EtudiantController extends Controller
 
     public function infopv(Etudiant $etudiant)
     {
-        $nom_filiere = Filiere::find($etudiant->filiere_id)->Intitule_Filiere;
+        /*$nom_filiere = Filiere::find($etudiant->filiere_id)->Intitule_Filiere;
         $nom_memoire = Memoire::find($etudiant->memoire_id)->Theme;
         $date_soutenance = Soutenance::find($etudiant->soutenance_id)->Date_Soutenance;
         $nom_professeur=Professeur::find($etudiant->professeur_id)->Nom_Professeur;
-        $nom_jury=Jurys::find($etudiant->jury_id)->NumJury;
-        return view('admin.Etudiants.charts', compact('etudiant', 'nom_filiere', 'nom_memoire','date_soutenance', 'nom_professeur','nom_jury'));
+        $nom_jury=Jurys::find($etudiant->jury_id)->NumJury;*/
+        return view('admin.Etudiants.charts', compact('etudiant'));
     }
 }

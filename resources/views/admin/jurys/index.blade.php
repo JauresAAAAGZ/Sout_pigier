@@ -37,6 +37,7 @@
                                             <th>Président</th>
                                             <th>Examinateur</th>
                                             <th>Rapporteur</th>
+                                            <th>Grade</th>
                                             <th>Opérations</th>
                 
                                         </tr>
@@ -61,13 +62,16 @@
                                                 {{ $jury->NumJury }}
                                                 </td>
                                                 <td>
-                                                    {{ $jury->President }}
+                                                    {{ $jury->president->Nom_Professeur }} {{ $jury->president->Prenom_Professeur }}
                                                 </td>
                                                 <td>
-                                                    {{ $jury->Examinateur }}
+                                                    {{ $jury->examinateur->Nom_Professeur }} {{ $jury->examinateur->Prenom_Professeur }}
                                                 </td>
                                                 <td>
-                                                    {{ $jury->Rapporteur }}
+                                                    {{ $jury->rapporteur->Nom_Professeur }} {{ $jury->rapporteur->Prenom_Professeur }}
+                                                </td>
+                                                <td>
+                                                    {{ $jury->rapporteur->Grade }}
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('jurys.show', $jury) }}" class="btn btn-info">Voir</a>

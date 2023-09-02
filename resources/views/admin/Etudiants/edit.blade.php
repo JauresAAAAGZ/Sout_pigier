@@ -58,13 +58,17 @@
                     <div class="mb-3">
                         <label for="filiere" class="form-label">Filiere</label>
                         <select name="filiere_id" id="filiere" class="form-control">
+                            
                             @foreach ($filieres as $filiere)
                             <option value="{{$filiere->id}}"
                             @if ($filiere->id == $etudiant->filiere_id)
                             selected
                             @endif
+                            
                             >{{$filiere->Intitule_Filiere}}</option>
                             @endforeach
+                            
+                           
                         </select>
                     </div>
                     <div class="row">
@@ -108,7 +112,7 @@
                             <label for="soutenance" class="form-label">Soutenance</label>
                             <select name="soutenance_id" id="soutenance" class="form-control">
                                 @foreach ($soutenances as $soutenance)
-                                <option value="{{$soutenance->id}}" >{{$soutenance->id}}</option>
+                                <option value="{{$soutenance->id}}" >{{$soutenance->Nom_Soutenance}}</option>
                                 @endforeach
                             </select>
         
