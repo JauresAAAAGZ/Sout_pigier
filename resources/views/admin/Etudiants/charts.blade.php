@@ -165,9 +165,9 @@
             <br>
             <table style="font-size: 11.5px;">
                <tr>
-                  <th style="width: 6%;">NOTE D’OBSERVATIONS SUR LES CRITÈRES D’ÉVALUATION</th>
-                  <th style="width: 1%;">OBSERVATIONS</th>
-                  <th style="width: 0.5%;">NOTE</th>
+                  <th style="width: 6%;" class="center">CRITÈRES D’ÉVALUATION</th>
+                  <th style="width: 1%;" class="center">OBSERVATIONS</th>
+                  <th style="width: 0.5%;" class="center">NOTE</th>
                </tr>
                <tr>
                   <td>1. Forme du Mémoire</td>
