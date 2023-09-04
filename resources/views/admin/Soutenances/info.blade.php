@@ -67,7 +67,7 @@
                         <div class="">
                             <div class="table-responsive" >
                                 
-                                <table class="table table-bordered" id="dataTable" style="font-size: 15px;">
+                                <table class="table table-bordered" id="" style="font-size: 15px;">
                                     <thead>
                                         <tr>
                                             <th>Jury</th>

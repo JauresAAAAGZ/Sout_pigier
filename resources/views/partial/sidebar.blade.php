@@ -34,26 +34,21 @@
             <span>Liste des étudiants</span></a>
     </li>
 
+    <!-- Nav Item - Filiere-->
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('filieres.index')}}">
+            <i class="fas fa-user-friends"></i>
+            <span>Filiere</span></a>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link" href="{{route('soutenances.index')}}">
             <i class="fas fa-book"></i>
             <span>Soutenance</span></a>
     </li>
     
-    <!-- Nav Item - Planning/Soutenance-->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('soutenances.info')}}">
-            <i class="far fa-calendar-alt"></i>
-            <span>Planning</span></a>
-    </li>
+    
 
-
-    <!-- Nav Item - Jury-->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('jurys.index')}}">
-            <i class="fas fa-edit"></i>
-            <span>Jury</span></a>
-    </li>
 
       <!-- Nav Item - Professeur-->
       <li class="nav-item">
@@ -62,12 +57,13 @@
             <span>Professeur</span></a>
     </li>
 
-    <!-- Nav Item - Filiere-->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('filieres.index')}}">
-            <i class="fas fa-user-friends"></i>
-            <span>Filiere</span></a>
+      <!-- Nav Item - Jury-->
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('jurys.index')}}">
+            <i class="fas fa-edit"></i>
+            <span>Jury</span></a>
     </li>
+
 
      <!-- Nav Item - Memoire-->
      <li class="nav-item">
@@ -82,6 +78,13 @@
         <a class="nav-link" href="{{route('charts')}}">
             <i class="far fa-file-alt"></i>
             <span>Procès Verbal</span></a>
+    </li>
+
+    <!-- Nav Item - Planning/Soutenance-->
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('soutenances.info')}}">
+            <i class="far fa-calendar-alt"></i>
+            <span>Planning</span></a>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
