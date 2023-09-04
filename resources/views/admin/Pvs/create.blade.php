@@ -20,7 +20,7 @@
            <!-- Begin Page Content -->
            <h1 class="mb-0">Créer PV</h1>
            <hr />
-          <form action="{{route('pvs.store')}}" method="post">
+          <form action="{{route('pvs.store')}}" method="post" id="addpv">
             @csrf
             <div class="row">
                 <div class="col mb-3">
@@ -32,7 +32,7 @@
             </div>
             
            
-            <button type="submit" class="btn btn-primary">Créer le PV</button>
+            <button id="pvadd" type="submit" class="btn btn-primary">Créer le PV</button>
         </form>
         </div>
         <!-- /.card-body -->
@@ -44,5 +44,22 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var formulaire = document.getElementById('addpv');
+        var boutonAjouter = document.getElementById('pvadd');
+    
+        formulaire.addEventListener('submit', function (e) {
+            e.preventDefault(); // Empêche la soumission normale du formulaire
+    
+            // Désactivez le bouton
+            boutonAjouter.disabled = true;
+    
+            // Soumettez le formulaire manuellement
+            this.submit();
+        });
+    });
+    
+    
+</script>
 @endsection

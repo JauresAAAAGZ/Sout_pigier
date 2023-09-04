@@ -20,7 +20,7 @@
            <!-- Begin Page Content -->
            <h1 class="mb-0">Créer Soutenance</h1>
            <hr />
-          <form action="{{route('soutenances.store')}}" method="post">
+          <form action="{{route('soutenances.store')}}" method="post" id="addsoutenance">
             @csrf
             <div class="row">
 
@@ -60,7 +60,7 @@
             </div>
 
            
-            <button type="submit" class="btn btn-primary">Créer la soutenance</button>
+            <button id="soutenanceadd" type="submit" class="btn btn-primary">Créer la soutenance</button>
         </form>
         </div>
         <!-- /.card-body -->
@@ -72,5 +72,22 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var formulaire = document.getElementById('addsoutenance');
+        var boutonAjouter = document.getElementById('soutenanceadd');
+    
+        formulaire.addEventListener('submit', function (e) {
+            e.preventDefault(); // Empêche la soumission normale du formulaire
+    
+            // Désactivez le bouton
+            boutonAjouter.disabled = true;
+    
+            // Soumettez le formulaire manuellement
+            this.submit();
+        });
+    });
+    
+    
+</script>
 @endsection

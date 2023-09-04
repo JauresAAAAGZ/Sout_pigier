@@ -22,7 +22,7 @@
                 <!-- Begin Page Content -->
                 <h1 class="mb-0">Editer Soutenance</h1>
                 <hr />
-                <form action="{{ route('soutenances.update', $soutenance) }}" method="post">
+                <form action="{{ route('soutenances.update', $soutenance) }}" method="post" id="editsoutenance">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -65,7 +65,7 @@
                     </div>
                     <div class="row">
                         <div class="d-grid">
-                            <button class="btn btn-warning" type="submit">Modifier</button>
+                            <button id="soutenanceedit" class="btn btn-warning" type="submit">Modifier</button>
                         </div>
                     </div>
                 </form>
@@ -74,6 +74,23 @@
            @include('partial.footer')
             </div>
         </div>
-    
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var formulaire = document.getElementById('editsoutenance');
+                var boutonAjouter = document.getElementById('soutenanceedit');
+            
+                formulaire.addEventListener('submit', function (e) {
+                    e.preventDefault(); // Empêche la soumission normale du formulaire
+            
+                    // Désactivez le bouton
+                    boutonAjouter.disabled = true;
+            
+                    // Soumettez le formulaire manuellement
+                    this.submit();
+                });
+            });
+            
+            
+        </script>
     
 @endsection

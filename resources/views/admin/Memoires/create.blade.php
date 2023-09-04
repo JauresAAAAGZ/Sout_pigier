@@ -20,7 +20,7 @@
            <!-- Begin Page Content -->
            <h1 class="mb-0">Créer Memoire</h1>
            <hr />
-          <form action="{{route('memoires.store')}}" method="post">
+          <form action="{{route('memoires.store')}}" method="post" id="addmemoire">
             @csrf
             <div class="row">
                 <div class="col mb-3">
@@ -47,7 +47,7 @@
                 </div>
             </div>
                        
-            <button type="submit" class="btn btn-primary">Créer le memoire</button>
+            <button id="memoireadd" type="submit" class="btn btn-primary">Créer le memoire</button>
         </form>
         </div>
         <!-- /.card-body -->
@@ -59,5 +59,23 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var formulaire = document.getElementById('addmemoire');
+        var boutonAjouter = document.getElementById('memoireadd');
+    
+        formulaire.addEventListener('submit', function (e) {
+            e.preventDefault(); // Empêche la soumission normale du formulaire
+    
+            // Désactivez le bouton
+            boutonAjouter.disabled = true;
+    
+            // Soumettez le formulaire manuellement
+            this.submit();
+        });
+    });
+    
+    
+</script>
 
 @endsection

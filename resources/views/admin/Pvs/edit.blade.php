@@ -22,7 +22,7 @@
                 <!-- Begin Page Content -->
                 <h1 class="mb-0">Editer PV</h1>
                 <hr />
-                <form action="{{ route('pvs.update', $pV) }}" method="post">
+                <form action="{{ route('pvs.update', $pV) }}" method="post" id="editpV">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -35,7 +35,7 @@
                    
                     <div class="row">
                         <div class="d-grid">
-                            <button class="btn btn-warning" type="submit">Modifier</button>
+                            <button id="pvedit" class="btn btn-warning" type="submit">Modifier</button>
                         </div>
                     </div>
                 </form>
@@ -44,6 +44,23 @@
            @include('partial.footer')
             </div>
         </div>
-    
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var formulaire = document.getElementById('editpV');
+                var boutonAjouter = document.getElementById('pvedit');
+            
+                formulaire.addEventListener('submit', function (e) {
+                    e.preventDefault(); // Empêche la soumission normale du formulaire
+            
+                    // Désactivez le bouton
+                    boutonAjouter.disabled = true;
+            
+                    // Soumettez le formulaire manuellement
+                    this.submit();
+                });
+            });
+            
+            
+        </script>
     
 @endsection

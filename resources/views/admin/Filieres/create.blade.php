@@ -20,7 +20,7 @@
            <!-- Begin Page Content -->
            <h1 class="mb-0">Créer Filiere</h1>
            <hr />
-          <form action="{{route('filieres.store')}}" method="post">
+          <form action="{{route('filieres.store')}}" method="post" id="addfil">
             @csrf
             <div class="row">
                 <div class="col mb-3">
@@ -41,7 +41,7 @@
             </div>
             
            
-            <button type="submit" class="btn btn-primary">Créer la filiere</button>
+            <button id="filadd" type="submit" class="btn btn-primary">Créer la filiere</button>
         </form>
         </div>
         <!-- /.card-body -->
@@ -53,5 +53,23 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var formulaire = document.getElementById('addfil');
+        var boutonAjouter = document.getElementById('filadd');
+    
+        formulaire.addEventListener('submit', function (e) {
+            e.preventDefault(); // Empêche la soumission normale du formulaire
+    
+            // Désactivez le bouton
+            boutonAjouter.disabled = true;
+    
+            // Soumettez le formulaire manuellement
+            this.submit();
+        });
+    });
+    
+    
+</script>
 
 @endsection

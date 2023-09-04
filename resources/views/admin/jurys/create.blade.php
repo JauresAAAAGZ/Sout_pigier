@@ -20,7 +20,7 @@
            <!-- Begin Page Content -->
            <h1 class="mb-0">Créer Jury</h1>
            <hr />
-          <form action="{{route('jurys.store')}}" method="post">
+          <form action="{{route('jurys.store')}}" method="post" id="addjury">
             @csrf
             <div class="row">
                 <div class="col mb-3">
@@ -62,7 +62,7 @@
             </div>
 
            
-            <button type="submit" class="btn btn-primary">Créer le Jury</button>
+            <button id="juryadd" type="submit" class="btn btn-primary">Créer le Jury</button>
         </form>
         </div>
         <!-- /.card-body -->
@@ -74,5 +74,23 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var formulaire = document.getElementById('addjury');
+        var boutonAjouter = document.getElementById('juryadd');
+    
+        formulaire.addEventListener('submit', function (e) {
+            e.preventDefault(); // Empêche la soumission normale du formulaire
+    
+            // Désactivez le bouton
+            boutonAjouter.disabled = true;
+    
+            // Soumettez le formulaire manuellement
+            this.submit();
+        });
+    });
+    
+    
+</script>
 
 @endsection

@@ -12,6 +12,10 @@
    height: 15cm; 
    
    }
+   #mon_div {
+      margin-left: 20px;
+      margin-top: 80px
+   }
    h1 {
    text-align: center;
    }
@@ -67,7 +71,8 @@
             <button id="convertButton" class="btn btn-primary">Generer PV</button>
          </div>
          <div id="elementToConvert" style="font-size: 12.5px;">
-            <h1 style="font-size: 27px;">PROCES-VERBAL DE SOUTENANCE DE MEMOIRE</h1>
+            <div id="mon_div">
+            <h1 style="font-size: 27px;">PROCES-VERBAL DE SOUTENANCE DE MEMOIRE</h1><br>
             <div class="left" style="float: left; width: 50%;" style="font-size: 36px;">Autorisée par la Note de Service N°</div>
             <div class="right" style="float: left; width: 40%;" style="font-size: 16px;">MESRS/DGES/DOSES/SEPES/DSPI/SA</div>
             <br/>
@@ -334,6 +339,7 @@
                   </tr>
                </tbody>
             </table>
+         </div>
          </div>
          <!-- End of Content Wrapper -->
       </div>
