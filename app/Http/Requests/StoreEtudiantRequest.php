@@ -62,7 +62,7 @@ class StoreEtudiantRequest extends FormRequest
         'Date_Naissance.required' => 'Le champ date de naissance est obligatoire.',
         'Date_Naissance.date' => 'Le champ date de naissance doit être une date valide.',
         'Niveau_Etude.required' => 'Le champ niveau est obligatoire.',
-        'Niveau_Etude.min' => 'Le champ niveau doit contenir au moins 6.',
+        'Niveau_Etude.min' => 'Le champ niveau doit contenir au moins 6 caractères Exemple : Licence 1.',
     ];
 }
 }

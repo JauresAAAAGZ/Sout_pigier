@@ -70,7 +70,7 @@
                                         <div class="block mt-4">
                                             <label for="remember_me" class="inline-flex items-center">
                                                 <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Rester connecter') }}</span>
+                                                <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Se souvenir de moi') }}</span>
                                             </label>
                                         </div>
 
@@ -82,7 +82,7 @@
                                             @if (Route::has('password.request'))
                                                 <div class="text-center">
                                                     <a class="large" href="{{ route('password.request') }}">
-                                                        {{ __('Mot de passe oublier?') }}
+                                                        {{ __('Mot de passe oublié?') }}
                                                     </a>
                                                 </div>
                                             @endif
@@ -92,7 +92,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="large" href="register">Créer un compte!</a>
+                                        <a class="large" href="register">Créez votre compte!</a>
                                     </div>
                                 </div>
                             </div>
