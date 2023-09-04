@@ -14,7 +14,7 @@
    }
    #mon_div {
       margin-left: 20px;
-      margin-top: 80px
+      margin-top: 30px
    }
    h1 {
    text-align: center;
@@ -72,7 +72,7 @@
          </div>
          <div id="elementToConvert" style="font-size: 12.5px;">
             <div id="mon_div">
-            
+            <img src="{{ asset('images/PigierLogo.png') }}" alt="Mon Image">
             <h1 style="font-size: 27px;">PROCES-VERBAL DE SOUTENANCE DE MEMOIRE</h1><br>
             <div class="left" style="float: left; width: 50%;" style="font-size: 36px;">Autorisée par la Note de Service N°</div>
             <div class="right" style="float: left; width: 40%;" style="font-size: 16px;">MESRS/DGES/DOSES/SEPES/DSPI/SA</div>
