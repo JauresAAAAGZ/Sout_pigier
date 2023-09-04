@@ -72,6 +72,7 @@
          </div>
          <div id="elementToConvert" style="font-size: 12.5px;">
             <div id="mon_div">
+            
             <h1 style="font-size: 27px;">PROCES-VERBAL DE SOUTENANCE DE MEMOIRE</h1><br>
             <div class="left" style="float: left; width: 50%;" style="font-size: 36px;">Autorisée par la Note de Service N°</div>
             <div class="right" style="float: left; width: 40%;" style="font-size: 16px;">MESRS/DGES/DOSES/SEPES/DSPI/SA</div>
@@ -366,21 +367,21 @@
 <script src="js/demo/chart-pie-demo.js"></script>
 <script src="js/demo/chart-bar-demo.js"></script>
 <script>
-   document.getElementById('convertButton').addEventListener('click', function() {
-       const element = document.getElementById('elementToConvert');
-   
-       html2pdf()
-   .from(element)
-   .save('pv.pdf');
-   const pdfOptions = {
-   margin: { top: -15, right: 1.96, bottom: -15, left: 4 }, // Ajustez les marges selon vos besoins
-   filename: 'pv.pdf',
-   image: { type: 'png', quality: 0.98 },
-   html2canvas: { scale: 2 },
-   jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-   };
-   pdfOptions.jsPDF.format = [250, 357]; // A4 portrait
-   });
-   
+      document.getElementById('convertButton').addEventListener('click', function() {
+         const element = document.getElementById('elementToConvert');
+      
+         html2pdf()
+      .from(element)
+      .save('pv.pdf');
+      const pdfOptions = {
+      margin: { top: -15, right: 1.96, bottom: -15, left: 4 }, // Ajustez les marges selon vos besoins
+      filename: 'pv.pdf',
+      image: { type: 'png', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+      pdfOptions.jsPDF.format = [250, 357]; // A4 portrait
+      });
+      
 </script>
 @endsection

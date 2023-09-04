@@ -95,7 +95,7 @@
 
                         <li>Rapporteur: 
                             @if ($etudiant->jury)
-                                {{$etudiant->jury->Rapporteur}}
+                            {{$etudiant->jury->rapporteur->Nom_Professeur}} {{$etudiant->jury->rapporteur->Prenom_Professeur}}
                             @endif
                         </li>
 

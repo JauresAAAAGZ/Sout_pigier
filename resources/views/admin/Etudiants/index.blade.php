@@ -128,44 +128,66 @@
 
                                                 <td>
                                                     @if ($etudiant->jury)
+                                                        
+                                                   
+                                                    @if ($etudiant->jury->president)
                                                     {{$etudiant->jury->president->Nom_Professeur}} {{$etudiant->jury->president->Prenom_Professeur}}
+                                                    @endif
+
                                                     @endif
                                                 </td>
 
                                                 <td>
-                                                 @if ($etudiant->jury)
+                                                    @if ($etudiant->jury)
+                                                        
+                                                    
+                                                 @if ($etudiant->jury->president)
                                                  {{$etudiant->jury->president->Grade}}
+                                                 @endif
+
                                                  @endif
                                                 </td>
 
                                                 <td>
                                                     @if ($etudiant->jury)
+                                                        
+                                                    
+                                                    @if ($etudiant->jury->examinateur)
                                                     {{$etudiant->jury->examinateur->Nom_Professeur}} {{$etudiant->jury->examinateur->Prenom_Professeur}}
                                                         
                                                     @endif
-                                                </td>
 
-                                                <td>
-                                                    @if ($etudiant->jury)
-                                                    {{$etudiant->jury->examinateur->Grade}}
                                                     @endif
                                                 </td>
 
                                                 <td>
                                                     @if ($etudiant->jury)
+                                                    @if ($etudiant->jury->examinateur)
+                                                    {{$etudiant->jury->examinateur->Grade}}
+                                                    @endif
+                                                    @endif
+                                                </td>
+
+                                                <td>
+                                                    @if ($etudiant->jury)
+                                                    @if ($etudiant->jury->rapporteur)
                                                     {{$etudiant->jury->rapporteur->Nom_Professeur}} {{$etudiant->jury->rapporteur->Prenom_Professeur}}
                                                         
                                                     @endif
-                                                </td>
-
-                                                <td>
-                                                    @if ($etudiant->jury)
-                                                    {{$etudiant->jury->rapporteur->Grade}}
-                                                        
                                                     @endif
                                                 </td>
 
                                                 <td>
+                                                    @if ($etudiant->jury)
+                                                    @if ($etudiant->jury->rapporteur)
+                                                    {{$etudiant->jury->rapporteur->Grade}}
+                                                        
+                                                    @endif
+                                                    @endif
+                                                </td>
+
+                                                <td>
+                                                   
                                                     @if ($etudiant->soutenance)
                                                     {{$etudiant->soutenance->Date_Soutenance}}
                                                         
