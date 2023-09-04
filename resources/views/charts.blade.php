@@ -63,7 +63,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <!-- Sidebar -->
-@include('partial.sidebar')
+ @if (auth()->user()->isAdmin())
+                @include('partial.sidebar')
+            @elseif (auth()->user()->isDE())
+                @include('partial.sidebar_DE')
+            @elseif (auth()->user()->isCoordonateur())
+                @include('partial.sidebar_Coordonateur')
+            @elseif (auth()->user()->isADE())
+                @include('partial.sidebar_Assistant_Directeur_des_Etudes')
+            @endif
+   
 <!-- End of Sidebar -->
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">

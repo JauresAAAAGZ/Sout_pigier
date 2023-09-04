@@ -72,6 +72,12 @@
             <span>Memoire</span></a>
     </li>
    
+     <!-- Nav Item - Planning/Soutenance-->
+     <li class="nav-item">
+        <a class="nav-link" href="{{route('soutenances.info')}}">
+            <i class="far fa-calendar-alt"></i>
+            <span>Planning</span></a>
+    </li>
 
     <!-- Nav Item - PV -->
     <li class="nav-item">
@@ -80,12 +86,7 @@
             <span>Procès Verbal</span></a>
     </li>
 
-    <!-- Nav Item - Planning/Soutenance-->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('soutenances.info')}}">
-            <i class="far fa-calendar-alt"></i>
-            <span>Planning</span></a>
-    </li>
+   
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">

@@ -10,6 +10,8 @@
     <meta name="author" content="">
 
     <title>Pigier - Register</title>
+     <!-- Bootstrap styles-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -49,7 +51,13 @@
                                 <!-- Service -->
                                 <div class="col-sm-6">
                                     <x-input-label for="service" :value="__('Service')" />
-                                    <x-text-input id="service" class="form-control form-control-user" type="text" name="service" :value="old('service')" required autocomplete="service" />
+                                    <select class="form-select form-select-md mb-3" name="service" id="service" >
+                                        <option disabled selected value> Choisir un service</option>
+                                        <option value="admin">Administrateur</option>
+                                        <option value="Directeur_des_Etudes">Directeur des Etudes</option>
+                                        <option value="Coordonateur">Coordonateur</option>
+                                        <option value="Assistant_Directeur_des_Etudes">Assistant Directeur des Etudes</option>                                        
+                                    </select> 
                                     <x-input-error :messages="$errors->get('service')" class="mt-2" />
                                 </div>
                             </div>
@@ -105,6 +113,9 @@
         </div>
 
     </div>
+
+     <!-- Bootstrap JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

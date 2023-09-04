@@ -3,7 +3,16 @@
 
 @section('content')
 
-    @include('partial.sidebar')
+     @if (auth()->user()->isAdmin())
+                @include('partial.sidebar')
+            @elseif (auth()->user()->isDE())
+                @include('partial.sidebar_DE')
+            @elseif (auth()->user()->isCoordonateur())
+                @include('partial.sidebar_Coordonateur')
+            @elseif (auth()->user()->isADE())
+                @include('partial.sidebar_Assistant_Directeur_des_Etudes')
+            @endif
+   
     <div id="content-wrapper" class="d-flex flex-column">
     <div id="content">
     @include('partial.header')

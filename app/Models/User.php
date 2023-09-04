@@ -44,5 +44,27 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function isAdmin()
+{
+    return $this->service === 'admin';
+}
+
+public function isDE()
+{
+    return $this->service === 'Directeur_des_Etudes';
+}
+
+public function isCoordonateur()
+{
+    return $this->service === 'Coordonateur';
+}
+
+public function isADE()
+{
+    return $this->service === 'Assistant_Directeur_des_Etudes';
+}
+
+
+
 
 }
