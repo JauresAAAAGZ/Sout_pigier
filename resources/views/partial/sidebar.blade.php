@@ -27,84 +27,92 @@
         Menus
     </div>
 
-    <!-- Nav Item - Liste Etudiants -->
+    <!-- Collapse menu Etudiants -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('etudiants.index') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Liste des étudiants</span></a>
-    </li>
-
-    <!-- Nav Item - Filiere-->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('filieres.index')}}">
-            <i class="fas fa-user-friends"></i>
-            <span>Filiere</span></a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('soutenances.index')}}">
-            <i class="fas fa-book"></i>
-            <span>Soutenance</span></a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEtudiants"
+            aria-expanded="true" aria-controls="collapseEtudiants">
+            <i class="fas fa-user-graduate"></i>
+            <span>Etudiants</span>
+        </a>
+        <div id="collapseEtudiants" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Etudiants</h6>
+                <a class="collapse-item" href={{route('etudiants.index')}}> <i class="fas fa-fw fa-table"></i>
+                    <span>Liste des étudiants</span>
+                </a>
+                <a class="collapse-item" href={{route('filieres.index')}}><i class="fas fa-user-friends"></i>
+                    <span>Filiere</span>
+                </a>
+                
+                <div class="collapse-divider"></div>
+            </div>
+        </div>
     </li>
     
-    
-
-
-      <!-- Nav Item - Professeur-->
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('professeurs.index')}}">
-            <i class="fas fa-glasses"></i>
-            <span>Professeur</span></a>
-    </li>
-
-      <!-- Nav Item - Jury-->
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('jurys.index')}}">
-            <i class="fas fa-edit"></i>
-            <span>Jury</span></a>
-    </li>
-
-
-     <!-- Nav Item - Memoire-->
-     <li class="nav-item">
+    <!-- Nav Item - Memoire-->
+    <li class="nav-item">
         <a class="nav-link" href="{{route('memoires.index')}}">
             <i class="fas fa-book"></i>
             <span>Memoire</span></a>
     </li>
    
-     <!-- Nav Item - Planning/Soutenance-->
-     <li class="nav-item">
-        <a class="nav-link" href="{{route('soutenances.info')}}">
-            <i class="far fa-calendar-alt"></i>
-            <span>Planning</span></a>
-    </li>
+    
+    
+ <!-- Collapse menu Professeurs -->
+ <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfesseurs"
+        aria-expanded="true" aria-controls="collapseProfesseurs">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span>Professeurs</span>
+    </a>
+    <div id="collapseProfesseurs" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Professeurs</h6>
+            <a class="collapse-item" href={{route('professeurs.index')}} > <i class="fas fa-glasses"></i>
+                <span>Directeur</span>
+            </a>
+            <a class="collapse-item" href={{route('jurys.index')}}> <i class="fas fa-edit"></i>
+                <span>Jury</span>
+            </a>
+            
+            <div class="collapse-divider"></div>
+        </div>
+    </div>
+</li>
 
-    <!-- Nav Item - PV -->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('charts')}}">
-            <i class="far fa-file-alt"></i>
-            <span>Procès Verbal</span></a>
-    </li>
+    
 
+ <!-- Nav Item - Soutenance-->
+ <li class="nav-item">
+    <a class="nav-link" href="{{route('soutenances.index')}}">
+        <i class="fas fa-book"></i>
+        <span>Soutenance</span></a>
+</li>
+     
    
 
-    <!-- Nav Item - Pages Collapse Menu -->
+    <!-- Collapse menu Documents -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Connexions</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuments"
+            aria-expanded="true" aria-controls="collapseDocuments">
+            <i class="far fa-clipboard"></i>
+            <span>Documents</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapseDocuments" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Connexions</h6>
-                <a class="collapse-item" href={{route('login')}}>Connexion</a>
-                <a class="collapse-item" href={{route('register')}}>Enregistrement</a>
-                <a class="collapse-item" href={{route('password.request')}}>Mot de passe oublié</a>
+                <h6 class="collapse-header">Documents</h6>
+                <a class="collapse-item" href={{route('soutenances.info')}}><i class="far fa-calendar-alt"></i>
+                    <span>Planning</span>
+                </a>
+                <a class="collapse-item" href={{route('charts')}}> <i class="far fa-file-alt"></i>
+                    <span>Procès Verbal</span>
+                </a>
+                
                 <div class="collapse-divider"></div>
             </div>
         </div>
     </li>
+
 
    
     

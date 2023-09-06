@@ -27,18 +27,26 @@
         Menus
     </div>
 
-    <!-- Nav Item - Liste Etudiants -->
+    <!-- Collapse menu Etudiants -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('etudiants.index') }}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Liste des étudiants</span></a>
-    </li>
-
-    <!-- Nav Item - Filiere-->
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('filieres.index')}}">
-            <i class="fas fa-user-friends"></i>
-            <span>Filiere</span></a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-user-graduate"></i>
+            <span>Etudiants</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Etudiants</h6>
+                <a class="collapse-item" href={{route('etudiants.index')}}> <i class="fas fa-fw fa-table"></i>
+                    <span>Liste des étudiants</span>
+                </a>
+                <a class="collapse-item" href={{route('filieres.index')}}><i class="fas fa-user-friends"></i>
+                    <span>Filiere</span>
+                </a>
+                
+                <div class="collapse-divider"></div>
+            </div>
+        </div>
     </li>
 
     
