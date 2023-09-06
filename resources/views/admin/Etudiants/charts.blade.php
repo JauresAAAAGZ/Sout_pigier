@@ -16,6 +16,12 @@
       margin-left: 20px;
       margin-top: 30px
    }
+
+   #mon_div1 {
+        
+        margin-top: 11px;
+        margin-bottom: 11px
+    }
    h1 {
    text-align: center;
    }
@@ -161,7 +167,7 @@
                      </td>
                   </tr>
                   <tr>
-                     <td>Signature de l’Etudiant(e)</td>
+                     <td><div id="mon_div1">Signature de l’Etudiant(e)</div></td> 
                      <td style="color: black;" class="center"> : </td>
                      <td>
                         <p></p>
@@ -191,10 +197,10 @@
                   <td>1.1. Esthétique du Document (Propreté - Lisibilité - Page de Garde, Qualité des illustrations: Tableaux- Graphiques. Chiffres-etc.)</td>
                </tr>
                <tr>
-                  <td>1.2. Structure du Document Rubriques obligatoires- Articulation et Proportion des Parties-Chapitres Introduction. Conclusion, etc.</td>
+                  <td>1.2. Structure du Document (Rubriques obligatoires- Articulation et Proportion des Parties-Chapitres Introduction. Conclusion, etc.)</td>
                </tr>
                <tr>
-                  <td>1.3. Rédaction Orthographe, Grammaire, Style, Syntaxe, etc.</td>
+                  <td>1.3. Rédaction (Orthographe, Grammaire, Style, Syntaxe, etc.)</td>
                </tr>
                <tr>
                   <td>2. Fond du Mémoire</td>
@@ -208,7 +214,7 @@
                   <td>2.1. Maîtrise de la Problématique et de la Littérature</td>
                </tr>
                <tr>
-                  <td>2.2. Rigueur Méthodologique Orthographe, Grammaire, Style, Syntaxe, etc.</td>
+                  <td>2.2. Rigueur Méthodologique (Orthographe, Grammaire, Style, Syntaxe, etc.)</td>
                </tr>
                <tr>
                   <td>2.3. Pertinence des Résultats Pour la Structure d’Accueil, la Société</td>
@@ -222,16 +228,16 @@
                   </td>
                </tr>
                <tr>
-                  <td>3.1. Qualité des Supports de Présentation Powerpoint, Réalisations telles que: Application développée Solution inventée, etc.</td>
+                  <td>3.1. Qualité des Supports de Présentation (Powerpoint, Réalisations telles que: Application développée Solution inventée, etc.)</td>
                </tr>
                <tr>
-                  <td>3.2 Rigueur du Raisonnement Cohérence, Logique de l’Exposé, clarté, Précision, Diction, Correction de l’Expression, etc.</td>
+                  <td>3.2 Rigueur du Raisonnement (Cohérence, Logique de l’Exposé, clarté, Précision, Diction, Correction de l’Expression, etc.)</td>
                </tr>
                <tr>
                   <td>3.3. Gestion du Temps et Expression Corporelle</td>
                </tr>
                <tr>
-                  <td>4. Défense du Mémoire par le Candidat</td>
+                  <td>4. Défense du Mémoire par le Candidat (Intelligence Situationnelle)</td>
                   <td rowspan="4"></td>
                   <td rowspan="4" class="center" style="color: black;">
                      <hr style="background-color: black; height: 2px; border: none;">
@@ -239,10 +245,10 @@
                   </td>
                </tr>
                <tr>
-                  <td>4.1. Expression corporelle Tenue, aisance, courtoisie...</td>
+                  <td>4.1. Expression corporelle (Tenue, aisance, courtoisie...)</td>
                </tr>
                <tr>
-                  <td>4.2. Réponse aux Questions Précision, Concision, Justesse, etc.</td>
+                  <td>4.2. Réponse aux Questions (Précision, Concision, Justesse, etc.)</td>
                </tr>
                <tr>
                   <td>4.3. Gestion de Situations difficiles lors de la Soutenance Observations Complémentaires du Jury</td>
@@ -306,7 +312,7 @@
                </thead>
                <tbody>
                   <tr>
-                     <td>Signature</td>
+                     <td><div id="mon_div1">Signature</div></td>
                      <td></td>
                      <td></td>
                      <td></td>
@@ -383,7 +389,7 @@
       .from(element)
       .save('pv.pdf');
       const pdfOptions = {
-      margin: { top: -15, right: 1.96, bottom: -15, left: 4 }, // Ajustez les marges selon vos besoins
+      margin: { top: 2, right: 1.96, bottom: 5, left: 4 }, // Ajustez les marges selon vos besoins
       filename: 'pv.pdf',
       image: { type: 'png', quality: 0.98 },
       html2canvas: { scale: 2 },

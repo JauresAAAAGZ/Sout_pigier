@@ -15,8 +15,14 @@
         }
         #mon_div {
       margin-left: 20px;
-      margin-top: 80px
+      margin-top: 30px
    }
+
+    #mon_div1 {
+        
+        margin-top: 11px;
+        margin-bottom: 11px
+    }
         h1 {
             text-align: center;
         }
@@ -90,6 +96,7 @@
          </div>
 <div id="elementToConvert" style="font-size: 12.5px;">
     <div id="mon_div">
+    <img src="{{ asset('images/PigierLogo.png') }}" alt="Mon Image">
     <h1 style="font-size: 27px;">PROCES-VERBAL DE SOUTENANCE DE MEMOIRE</h1><br>
     <div class="left" style="float: left; width: 50%;" style="font-size: 36px;">Autorisée par la Note de Service N°</div>
     <div class="right" style="float: left; width: 40%;" style="font-size: 16px;">MESRS/DGES/DOSES/SEPES/DSPI/SA</div><br/>
@@ -131,10 +138,13 @@
                  <td><p></p> <p></p> <p></p> <p></p></td>
             </tr>
 	   <tr>
-                <td>Signature de l’Etudiant(e)</td>
+           
+                <td><div id="mon_div1">Signature de l’Etudiant(e)</div></td> 
+                
                  <td style="color: black;" class="center"> : </td>
                  <td><p></p> <p></p> <p></p> <p></p></td>
-            </tr>
+        </tr>
+           
         </tbody>
     </table><br>
 
@@ -154,11 +164,11 @@
         
     </tr>
     <tr>
-        <td>1.2. Structure du Document Rubriques obligatoires- Articulation et Proportion des Parties-Chapitres Introduction. Conclusion, etc.</td>
+        <td>1.2. Structure du Document (Rubriques obligatoires- Articulation et Proportion des Parties-Chapitres Introduction. Conclusion, etc.)</td>
         
     </tr>
     <tr>
-        <td>1.3. Rédaction Orthographe, Grammaire, Style, Syntaxe, etc.</td>
+        <td>1.3. Rédaction (Orthographe, Grammaire, Style, Syntaxe, etc.)</td>
         
     </tr>
     <tr>
@@ -171,7 +181,7 @@
         
     </tr>
     <tr>
-        <td>2.2. Rigueur Méthodologique Orthographe, Grammaire, Style, Syntaxe, etc.</td>
+        <td>2.2. Rigueur Méthodologique (Orthographe, Grammaire, Style, Syntaxe, etc.)</td>
         
     </tr>
     <tr>
@@ -184,11 +194,11 @@
         <td rowspan="4" class="center" style="color: black;"><hr style="background-color: black; height: 2px; border: none;">05,00</td>
     </tr>
     <tr>
-        <td>3.1. Qualité des Supports de Présentation Powerpoint, Réalisations telles que: Application développée Solution inventée, etc.</td>
+        <td>3.1. Qualité des Supports de Présentation (Powerpoint, Réalisations telles que: Application développée Solution inventée, etc.)</td>
         
     </tr>
     <tr>
-        <td>3.2 Rigueur du Raisonnement Cohérence, Logique de l’Exposé, clarté, Précision, Diction, Correction de l’Expression, etc.</td>
+        <td>3.2 Rigueur du Raisonnement (Cohérence, Logique de l’Exposé, clarté, Précision, Diction, Correction de l’Expression, etc.)</td>
         
     </tr>
     <tr>
@@ -196,16 +206,16 @@
         
     </tr>
     <tr>
-        <td>4. Défense du Mémoire par le Candidat</td>
+        <td>4. Défense du Mémoire par le Candidat (Intelligence Situationelle)</td>
         <td rowspan="4"></td>
         <td rowspan="4" class="center" style="color: black;"><hr style="background-color: black; height: 2px; border: none;">05,00</td>
     </tr>
     <tr>
-        <td>4.1. Expression corporelle Tenue, aisance, courtoisie...</td>
+        <td>4.1. Expression corporelle (Tenue, aisance, courtoisie...)</td>
         
     </tr>
     <tr>
-        <td>4.2. Réponse aux Questions Précision, Concision, Justesse, etc.</td>
+        <td>4.2. Réponse aux Questions (Précision, Concision, Justesse, etc.)</td>
         
     </tr>
     <tr>
@@ -258,7 +268,7 @@
         </thead>
         <tbody>
             <tr>
-                <td>Signature</td>
+                <td><div id="mon_div1">Signature</div></td>
                 <td></td>
                 <td></td>
                 <td></td>

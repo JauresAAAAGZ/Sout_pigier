@@ -5,12 +5,12 @@
 <style>
 
         body {
-            width: 35cm; 
+            width: 34cm; 
             height: 15cm;  
                 }
         #lui {
-            margin-left: 20px;
-            margin-right: 25px;
+            margin-left: 16px;
+            margin-right: 55px;
         }
         ul {
             list-style-type: none;
@@ -71,12 +71,13 @@
                     <div class="card shadow mb-4" >
                         <div id="tableToConvert">
                         <div class="card-header py-3 col-12">
+                            <div id="lui">
                             <h6 class="m-0 font-weight-bold text-primary col-6">Planning</h6>
                         </div>
                         <div class="">
                             <div class="table-responsive" >
                                 
-                                <table class="table table-bordered" id="" style="font-size: 15px;">
+                                <br><table class="table table-bordered" id="" style="font-size: 15px;">
                                     <thead>
                                         <tr>
                                             <th>Jury</th>
@@ -202,7 +203,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                            
+                            </div>
                             </div>
                         </div>
                         </div>

@@ -21,7 +21,20 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+               // return redirect(RouteServiceProvider::HOME);
+
+                // L'utilisateur est authentifié, vérifiez la durée de vie de la session
+                $sessionLifetime = config('session.lifetime');
+                $lastActivity = session('last_activity', 0);
+
+                if (time() - $lastActivity > $sessionLifetime * 60) {
+                    // La session a expiré, redirigez l'utilisateur vers la page de connexion
+                    return redirect('/login');
+                }
+
+                // Mettez à jour la dernière activité de l'utilisateur
+                session(['last_activity' => time()]);
+                
             }
         }
 
