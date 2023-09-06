@@ -45,9 +45,17 @@
                         <div class="col mb-3">
                             <label for="President" class="form-label">President</label>
                             <select name="President" id="President" class="form-control">
+                            
                                 @foreach ($professeurs as $professeur)
-                                <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                                <option value="{{$professeur->id}}"
+                                @if ($professeur->id == $jurys->President)
+                                selected
+                                @endif
+                                
+                                >{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
                                 @endforeach
+                                
+                               
                             </select>
                         </div>
                     </div>
@@ -55,19 +63,37 @@
                         <div class="col mb-3">
                             <label for="Examinateur" class="form-label">Examinateur</label>
                             <select name="Examinateur" id="Examinateur" class="form-control">
+                            
                                 @foreach ($professeurs as $professeur)
-                                <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                                <option value="{{$professeur->id}}"
+                                @if ($professeur->id == $jurys->Examinateur)
+                                selected
+                                @endif
+                                
+                                >{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
                                 @endforeach
+                                
+                               
                             </select>
                         </div>
                         <div class="col mb-3">
                             <label for="Rapporteur" class="form-label">Rapporteur</label>
                             <select name="Rapporteur" id="Rapporteur" class="form-control">
+                            
                                 @foreach ($professeurs as $professeur)
-                                <option value="{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
+                                <option value="{{$professeur->id}}"
+                                @if ($professeur->id == $jurys->Rapporteur)
+                                selected
+                                @endif
+                                
+                                >{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
                                 @endforeach
+                                
+                               
                             </select>
+                            </div>
                         </div>
+                        
                     </div>
                     <div class="row">
                         <div class="d-grid">
