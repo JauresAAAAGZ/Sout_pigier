@@ -29,12 +29,12 @@
 
     <!-- Collapse menu Etudiants -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEtudiants"
+            aria-expanded="true" aria-controls="collapseEtudiants">
             <i class="fas fa-user-graduate"></i>
             <span>Etudiants</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapseEtudiants" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Etudiants</h6>
                 <a class="collapse-item" href={{route('etudiants.index')}}> <i class="fas fa-fw fa-table"></i>
