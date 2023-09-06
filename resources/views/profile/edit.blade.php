@@ -1,4 +1,5 @@
 <x-app-layout>
+    
 @extends('layout.app')
 @section('content')
 
