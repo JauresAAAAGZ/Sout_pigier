@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('Theme');
             $table->integer('Nombre_Pages')->nullable();
-            $table->date('Date_Depot');
+            $table->date('Date_Depot')->format('d/m/Y');
             $table->unsignedBigInteger('jury_id')->nullable();
             $table->foreign('jury_id')->references('id')->on('jurys');
             $table->timestamps();
