@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('Nom');
             $table->string('Prenom');
             $table->string('Niveau_Etude');
-            $table->date('Date_Naissance')->format('d/m/Y');
+            $table->date('Date_Naissance');
             $table->string('Lieu_Naissance');
             $table->unsignedBigInteger('filiere_id')->nullable();
             $table->foreign('filiere_id')->references('id')->on('filieres')->onDelete('cascade');
