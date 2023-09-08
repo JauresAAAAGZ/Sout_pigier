@@ -65,7 +65,7 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-2 text-gray-800">Le Planning des Soutenances</h1>
                         <div id="dataTable_filter">
-                            <label>Filtre:<input type="search" id="search-bar" class="form-control form-control-sm" placeholder="Filtrez par filière ici" aria-controls="dataTable">
+                            <label>Filtrer:<input type="search" id="search-bar" class="form-control form-control-sm" placeholder="Par filière par exemple" aria-controls="dataTable">
                         </label>
                     </div>
                         <button id="convertButton" class="btn btn-primary">Generer Planning</button>
@@ -247,7 +247,18 @@
 <script>
        document.getElementById('convertButton').addEventListener('click', function() {
     const element = document.getElementById('tableToConvert');
-
+    const clonedTable = element.cloneNode(true);
+    const rows = clonedTable.querySelectorAll("tr");
+    rows.forEach((row) => {
+        const thCell = row.querySelector("th:last-child");
+        if (thCell) {
+            thCell.style.display = "none";
+        }
+        const tdCell = row.querySelector("td:last-child");
+        if (tdCell) {
+            tdCell.style.display = "none";
+        }
+  });
     const pdfOptions = {
         filename: 'planning.pdf',
         image: { type: 'png', quality: 0.98 },
@@ -256,7 +267,7 @@
     };
 
     html2pdf()
-        .from(element)
+        .from(clonedTable)
         .set(pdfOptions)
         .save();
 });
