@@ -64,6 +64,10 @@
                     
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-2 text-gray-800">Le Planning des Soutenances</h1>
+                        <div id="dataTable_filter">
+                            <label>Filtre:<input type="search" id="search-bar" class="form-control form-control-sm" placeholder="Filtrez par filière ici" aria-controls="dataTable">
+                        </label>
+                    </div>
                         <button id="convertButton" class="btn btn-primary">Generer Planning</button>
                     </div>
                     
@@ -71,10 +75,15 @@
                     <div class="card shadow mb-4" >
                         <div id="tableToConvert">
                         <div class="card-header py-3 col-12">
+
                             <div id="lui">
                             <h6 class="m-0 font-weight-bold text-primary col-6">Planning</h6>
+                           
                         </div>
+                        
+                       
                         <div class="">
+                            
                             <div class="table-responsive" >
                                 
                                 <br><table class="table table-bordered" id="" style="font-size: 15px;">
@@ -90,6 +99,7 @@
                                             <th>Président</th>
                                             <th>Examinateur</th>
                                             <th>Rapporteur</th>
+                                            <th>Filiere</th>
                                           
                                         </tr>
                                     </thead>
@@ -109,7 +119,7 @@
                                     
                                     <tbody>
                                         @foreach($soutenances as $soutenance)
-                                            <tr>
+                                            <tr class="data-row">
                                                 <td>
                                                     @if ($soutenance->etudiants->first())
                                                         
@@ -169,18 +179,17 @@
                                                  
                                                 </td>
                                                 <td>
+
                                                     @if ($soutenance->etudiants->first())
                                                     
-                                                    @if ($soutenance->etudiants->first()->jury)
-                                                    @if ($soutenance->etudiants->first()->jury->examinateur)
+                                                        @if ($soutenance->etudiants->first()->jury)
+                                                            @if ($soutenance->etudiants->first()->jury->examinateur)
                                                         
-                                                    
-                                                    
-                                                    {{$soutenance->etudiants->first()->jury->examinateur->Nom_Professeur}} {{$soutenance->etudiants->first()->jury->examinateur->Prenom_Professeur}}
+                                                                {{$soutenance->etudiants->first()->jury->examinateur->Nom_Professeur}} {{$soutenance->etudiants->first()->jury->examinateur->Prenom_Professeur}}
                                                         
+                                                            @endif
+                                                        @endif
                                                     @endif
-                                                    @endif
-                                                @endif
                                                    
                                                 </td>
                                                 <td>
@@ -197,6 +206,22 @@
                                                     @endif
                                                 @endif
                                                    
+                                                </td>
+
+
+                                                <td>
+                                                    @if ($soutenance->etudiants->first())
+                                                    
+                                                    
+                                                        @if ($soutenance->etudiants->first()->filiere)
+                                                            
+                                                        
+                                                        {{$soutenance->etudiants->first()->filiere->Intitule_Filiere}}
+                                                            
+                                                        
+                                                        @endif
+
+                                                    @endif
                                                 </td>
                                                                       
                                             </tr>
@@ -219,7 +244,7 @@
         </div>
         
       
-        <script>
+<script>
        document.getElementById('convertButton').addEventListener('click', function() {
     const element = document.getElementById('tableToConvert');
 
@@ -235,6 +260,31 @@
         .set(pdfOptions)
         .save();
 });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchBar = document.getElementById('search-bar');
+        const dataRows = document.querySelectorAll('.data-row');
+
+        searchBar.addEventListener('input', function () {
+            const searchTerm = this.value.trim().toLowerCase();
+
+            dataRows.forEach(function (row) {
+                const rowData = Array.from(row.querySelectorAll('td')).map(function (cell) {
+                    return cell.textContent.trim().toLowerCase();
+                });
+
+                if (rowData.some(function (cellData) {
+                    return cellData.includes(searchTerm);
+                })) {
+                    row.style.display = ''; // Afficher la ligne si au moins une cellule correspond
+                } else {
+                    row.style.display = 'none'; // Masquer la ligne si aucune cellule ne correspond
+                }
+            });
+        });
+    });
+
     
 </script>
 

@@ -41,18 +41,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/tables.html', function () {
+/*Route::get('/tables.html', function () {
     return view('tables');
-})->name('tables');
+})->name('tables');*/
 
-Route::get('/charts.html', function () {
+Route::get('/Procès-Verbal', function () {
     return view('charts');
 })->name('charts');
 
 
-Route::get('/dashboard1', function () {
+/*Route::get('/dashboard1', function () {
     return view('dashboard1');
-});
+});*/
 
 Route::resource('jurys', JurysController::class);
 Route::resource('etudiants', EtudiantController::class);
