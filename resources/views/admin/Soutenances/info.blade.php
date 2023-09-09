@@ -146,7 +146,7 @@ white-space: nowrap;
                                                 </td>
                                                 <td>
                                                     @foreach ($soutenance->etudiants as $etudiant )
-                                                    {{$etudiant->Nom}} {{$etudiant->Prenom}}
+                                                    {{$etudiant->Nom}} {{$etudiant->Prenom}}<br>
                                                     @endforeach
                                                     
                                                 </td>

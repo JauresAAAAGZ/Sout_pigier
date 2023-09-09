@@ -38,7 +38,7 @@
                     
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Les Etudiants</h1>
-                    <h6 style="color: black;">Assurez vous d'avoir enregistré les jurys, les memoires, et programmé les soutenances avant de modifier les etudiants</h6>
+                    <h6 style="color: red;">Assurez vous d'avoir enregistré les jurys, les memoires, et programmé les soutenances avant de modifier les etudiants</h6>
                     
                     <!-- DataTales -->
                     <div class="card shadow mb-4">

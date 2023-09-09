@@ -39,7 +39,7 @@
                     
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Les Jurys</h1>
-                    
+                    <h6 style="color: red;">Assurez vous d'avoir enregistré les directeurs(professeurs) avant d'enregistrer les Jurys</h6>
                     <!-- DataTales -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 col-12">
