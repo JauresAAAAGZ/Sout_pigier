@@ -31,6 +31,11 @@
         .no-border th, .no-border td {
             border: none;
         }
+
+        td,th{
+
+white-space: nowrap;
+}
     </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 

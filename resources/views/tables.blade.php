@@ -116,7 +116,9 @@
                                         <form action="{{ url('/soutenances/'.$soutenance->id) }}" method="POST" style="display: inline;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                                              <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                        <label for="confirmation">Confirmez-suppression:</label>
+                                                        <input type="checkbox" name="confirmation" required title="veuillez cocher cette case pour comfimer la suppression">
                                         </form>
                                     </td>
             

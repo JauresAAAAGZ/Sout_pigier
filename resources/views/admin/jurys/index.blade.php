@@ -2,6 +2,15 @@
 
 @section('content')
 
+
+<style>
+
+    td,th{
+
+       white-space: nowrap;
+    }
+</style>
+
         <!-- Sidebar -->
          @if (auth()->user()->isAdmin())
                 @include('partial.sidebar')

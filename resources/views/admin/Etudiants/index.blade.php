@@ -2,6 +2,14 @@
 
 @section('content')
 
+
+<style>
+
+    td,th{
+
+       white-space: nowrap;
+    }
+</style>
         <!-- Sidebar -->
          @if (auth()->user()->isAdmin())
                 @include('partial.sidebar')
@@ -30,11 +38,12 @@
                     
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Les Etudiants</h1>
+                    <h6 style="color: black;">Assurez vous d'avoir enregistré les jurys, les memoires, et programmé les soutenances avant de modifier les etudiants</h6>
                     
                     <!-- DataTales -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3 col-12">
-                            <h6 class="m-0 font-weight-bold text-primary col-6">Etudiants</h6>
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Etudiants</h6>
                             <a href="{{ route('etudiants.create') }}" class="btn btn-info">Ajouter</a>
                         </div>
                         <div class="card-body">
@@ -64,7 +73,6 @@
                                             <th>Heure</th>
                                             <th>Salle</th>
                                             <th>Opérations</th>
-                
                                         </tr>
                                     </thead>
                                     <!--<tfoot>
@@ -217,13 +225,18 @@
                                                
                                                 <td>
                                                     <a href="{{ route('etudiants.show', $etudiant) }}" class="btn btn-info">Voir</a>
-                                                    <a href="{{ route('etudiants.edit', $etudiant) }}" class="btn btn-primary">Modifier</a>
                                                     <a href="{{ route('etudiants.infopv', $etudiant) }}" class="btn btn-warning">PV</a>
+                                                    <a href="{{ route('etudiants.edit', $etudiant) }}" class="btn btn-primary">Modifier</a>
                                                     <form action="{{ url('/etudiants/'.$etudiant->id) }}" method="POST" style="display: inline;">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                    
+                                                          <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                        <label for="confirmation">Confirmez-suppression:</label>
+                                                        <input type="checkbox" name="confirmation" required title="veuillez cocher cette case pour comfimer la suppression">
+                                                       
                                                     </form>
+                                                   
                                                 </td>
                         
                                             </tr>
