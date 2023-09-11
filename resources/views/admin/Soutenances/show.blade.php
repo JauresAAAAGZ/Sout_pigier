@@ -33,6 +33,11 @@
 
                     <!-- Page Heading -->
                     <h1 class="mb-0">Info Soutenances</h1>
+                    @if(session('message1'))
+                    <div id="success-message" class="alert alert-success">
+                        {{session('message1')}}
+                    </div>
+                    @endif
                     <hr/>
                     <ul>
                         <li>Soutenance N°:  '{{ $soutenance->Nom_Soutenance }}'</li>
@@ -47,6 +52,22 @@
             </div>
         </div>
         
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var successMessage = document.getElementById('success-message');
+        
+                if (successMessage) {
+                    // Set the timeout in milliseconds (e.g., 5000ms = 5 seconds)
+                    var timeout = 3000;
+        
+                    // Automatically dismiss the success message after the timeout
+                    setTimeout(function () {
+                        successMessage.style.display = 'none'; // Hide the message
+                    }, timeout);
+                }
+            });
+        </script>
+
 
 @endsection
 

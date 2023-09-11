@@ -38,7 +38,7 @@ class FiliereController extends Controller
        
         $filieres->save();
 
-        return redirect()->route('filieres.index');
+        return redirect()->route('filieres.index')->with('message', 'La Filiere a été creé avec succès');
     }
 
     /**
@@ -68,7 +68,7 @@ class FiliereController extends Controller
        
         $filieres->save();
 
-        return redirect()->route('filieres.show', $filieres);
+        return redirect()->route('filieres.show', $filieres)->with('message1', 'La Filliere a été modifié avec succès.');;
     }
 
     /**
@@ -77,6 +77,6 @@ class FiliereController extends Controller
     public function destroy(Filiere $filiere)
     {
         $filiere->delete();
-        return redirect()->route('filieres.index');
+        return redirect()->route('filieres.index')->with('danger', 'La Filiere a été supprimé avec succès.');;
     }
 }

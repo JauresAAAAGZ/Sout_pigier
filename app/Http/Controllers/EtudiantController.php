@@ -20,7 +20,7 @@ class EtudiantController extends Controller
     {
         $etudiants = Etudiant::all();
        
-        return view('admin.Etudiants.index', compact('etudiants',));
+        return view('admin.Etudiants.index', compact('etudiants',))->with('message', 'Operation reussi');
                
 
     }
@@ -65,7 +65,7 @@ class EtudiantController extends Controller
         $etudiants->jury_id=$request->jury_id;
         $etudiants->save();
 
-        return redirect()->route('etudiants.index');
+        return redirect()->route('etudiants.index')->with('message', 'L\'Etudiant a été creé avec succès');
     }
 
     /**
@@ -120,7 +120,7 @@ class EtudiantController extends Controller
         $etudiants->jury_id=$request->jury_id;
         $etudiants->save();
 
-        return redirect()->route('etudiants.show', $etudiants);
+        return redirect()->route('etudiants.show', $etudiants)->with('message1', 'L\'étudiant a été modifier avec succes');
     }
 
     /**
@@ -136,7 +136,7 @@ class EtudiantController extends Controller
                 $etudiant->delete();
         
                 // Redirigez l'utilisateur avec un message de confirmation
-                return redirect()->route('etudiants.index')->with('success', 'L\'étudiant a été supprimé avec succès.');
+                return redirect()->route('etudiants.index')->with('danger', 'L\'étudiant a été supprimé avec succès.');
             } else {
                 // Redirigez l'utilisateur avec un message d'erreur
                 return redirect()->route('etudiants.index')->with('error', 'La suppression n\'a pas été confirmée.');

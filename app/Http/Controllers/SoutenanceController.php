@@ -46,7 +46,7 @@ class SoutenanceController extends Controller
        
         $soutenances->save();
 
-        return redirect()->route('soutenances.index');
+        return redirect()->route('soutenances.index')->with('message', 'La Soutenance a été creé avec succès');
     }
 
     /**
@@ -84,7 +84,7 @@ class SoutenanceController extends Controller
        
         $soutenances->save();
 
-        return redirect()->route('soutenances.show', $soutenances);
+        return redirect()->route('soutenances.show', $soutenances)->with('message1', 'La Soutenance a été modifié avec succès');
     }
 
     /**
@@ -93,7 +93,7 @@ class SoutenanceController extends Controller
     public function destroy(Soutenance $soutenance)
     {
         $soutenance->delete();
-        return redirect()->route('soutenances.index');
+        return redirect()->route('soutenances.index')->with('danger', 'La Soutenance a été supprimé avec succès');
     }
 
     public function info()

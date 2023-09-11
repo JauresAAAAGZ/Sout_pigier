@@ -48,7 +48,7 @@ class JurysController extends Controller
 
         $jurys->professeurs()->sync($request->professeurs);
 
-        return redirect()->route('jurys.index');
+        return redirect()->route('jurys.index')->with('message', 'Le Jury a été creé avec sucess');
     }
 
     /**
@@ -99,7 +99,7 @@ class JurysController extends Controller
 
         $jurys->professeurs()->sync($request->professeurs);
 
-        return redirect()->route('jurys.show', $jurys);
+        return redirect()->route('jurys.show', $jurys)->with('message1', 'Le Jury a été modifié avec succès');
 
     }
 
@@ -109,6 +109,6 @@ class JurysController extends Controller
     public function destroy(Jurys $jurys)
     {
         $jurys->delete();
-        return redirect()->route('jurys.index');
+        return redirect()->route('jurys.index')->with('danger', 'Le Jury a été supprimé avec succès.');;
     }
 }
