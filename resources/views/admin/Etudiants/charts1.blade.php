@@ -396,7 +396,7 @@
 <script src="js/demo/chart-bar-demo.js"></script>
 <!-- Dans votre vue Blade -->
 <!-- Dans votre vue Blade -->
-<script>
+<!--<script>
    document.getElementById('generateButton').addEventListener('click', function () {
        // Récupérez les étudiants sélectionnés
        const selectedStudents = document.querySelectorAll('.student-checkbox:checked');
@@ -410,7 +410,7 @@
            const studentName = student.dataset.name; // Vous devrez définir cela dans votre balise HTML
 
            // Sélectionnez l'élément à convertir en PDF pour cet étudiant (par exemple, par son ID)
-           const elementToConvert = document.getElementById('elementToConvert_' + studentId);
+           const elementToConvert = document.getElementById('elementToConvert' + studentId);
 
            // Clonez l'élément et ajoutez-le au div temporaire
            const clonedElement = elementToConvert.cloneNode(true);
@@ -422,7 +422,7 @@
            .from(tempContainer)
            .save(studentName);
    });
-</script>
+</script>-->
 
 
 

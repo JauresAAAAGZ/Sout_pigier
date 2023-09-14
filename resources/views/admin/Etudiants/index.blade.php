@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-md-12">
                             <a href="{{ route('charts') }}" class="btn btn-info">Ajouter</a>
-                            <a href="{{ route('etudiant.allpv') }}" class="btn btn-info">allPVS</a>
+                           
                         </div>
                         @if(session('message'))
                         <div id="success-message" class="alert alert-success">
