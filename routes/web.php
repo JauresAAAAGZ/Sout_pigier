@@ -49,7 +49,10 @@ Route::get('/Procès-Verbal', function () {
     return view('charts');
 })->name('charts');
 
+/*Route::get('/Tous-les-Procès-Verbaux', function () {
 
+    return view('admin.Etudiants.charts1');
+})->name('charts1');*/
 /*Route::get('/dashboard1', function () {
     return view('dashboard1');
 });*/
@@ -72,5 +75,7 @@ Route::put('/juryupdate/{jurys}', [JurysController::class, 'update'])->name('jur
 Route::get('/jurydestroy/{jurys} ', [JurysController::class, 'destroy'])->name('jurys.destroy');
 Route::get('/planning', [SoutenanceController::class, 'info'])->name('soutenances.info');
 Route::get('/pv/{etudiant}', [EtudiantController::class, 'infopv'])->name('etudiants.infopv');
+Route::post('/etudiants/generate-pvs', [EtudiantController::class, 'generatePvPDFs'])->name('etudiant.generatePvPDFs');
+Route::get('/Tous-les-Procès-Verbaux', [EtudiantController::class, 'allpv'])->name('etudiant.allpv');
 
 require __DIR__.'/auth.php';

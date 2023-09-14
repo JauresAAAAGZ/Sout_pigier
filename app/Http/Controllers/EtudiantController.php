@@ -10,6 +10,9 @@ use App\Models\Jurys;
 use App\Models\Memoire;
 use App\Models\Professeur;
 use App\Models\Soutenance;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+
 
 class EtudiantController extends Controller
 {
@@ -21,6 +24,14 @@ class EtudiantController extends Controller
         $etudiants = Etudiant::all();
        
         return view('admin.Etudiants.index', compact('etudiants',))->with('message', 'Operation reussi');
+               
+
+    }
+    public function allpv()
+    {
+        $etudiants = Etudiant::all();
+       
+        return view('admin.Etudiants.charts1', compact('etudiants',));
                
 
     }
@@ -155,4 +166,9 @@ class EtudiantController extends Controller
         $nom_jury=Jurys::find($etudiant->jury_id)->NumJury;*/
         return view('admin.Etudiants.charts', compact('etudiant'));
     }
+
+    
+
+
+ 
 }

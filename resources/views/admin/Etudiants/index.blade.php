@@ -44,7 +44,11 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Etudiants</h6>
-                            <a href="{{ route('etudiants.create') }}" class="btn btn-info">Ajouter</a>
+                            
+                        </div>
+                        <div class="col-md-12">
+                            <a href="{{ route('charts') }}" class="btn btn-info">Ajouter</a>
+                            <a href="{{ route('etudiant.allpv') }}" class="btn btn-info">allPVS</a>
                         </div>
                         @if(session('message'))
                         <div id="success-message" class="alert alert-success">
