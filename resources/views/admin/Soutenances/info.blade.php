@@ -147,6 +147,9 @@ white-space: nowrap;
                                                 <td>
                                                     @foreach ($soutenance->etudiants as $etudiant )
                                                     {{$etudiant->Nom}} {{$etudiant->Prenom}}
+                                                    @if($loop->first)
+                                                     &
+                                                    @endif
                                                     @endforeach
                                                     
                                                 </td>

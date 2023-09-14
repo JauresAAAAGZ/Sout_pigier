@@ -47,10 +47,15 @@
                             <a href="{{ route('memoires.create') }}" class="btn btn-info">Ajouter</a>
                         </div>
                         @if(session('message'))
-                        <div id="success-message" class="alert alert-success">
+                        <div id="success-message" class=" alert alert-success">
                             {{session('message')}}
-                </div>
-                @endif
+                        </div>
+                        @endif
+                        @if(session('danger'))
+                        <div id="success-message" class="alert alert-danger">
+                            {{session('danger')}}
+                        </div>
+                        @endif
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -119,19 +124,21 @@
         </div>
         
         <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var successMessage = document.getElementById('success-message');
+            document.addEventListener('DOMContentLoaded', function () {
+                var successMessage = document.getElementById('success-message');
+        
+                if (successMessage) {
+                    // Set the timeout in milliseconds (e.g., 5000ms = 5 seconds)
+                    var timeout = 3000;
+        
+                    // Automatically dismiss the success message after the timeout
+                    setTimeout(function () {
+                        successMessage.style.display = 'none'; // Hide the message
+                    }, timeout);
+                }
+            });
+        </script>
 
-        if (successMessage) {
-            // Set the timeout in milliseconds (e.g., 5000ms = 5 seconds)
-            var timeout = 3000;
 
-            // Automatically dismiss the success message after the timeout
-            setTimeout(function () {
-                successMessage.style.display = 'none'; // Hide the message
-            }, timeout);
-        }
-    });
-</script>
 
 @endsection

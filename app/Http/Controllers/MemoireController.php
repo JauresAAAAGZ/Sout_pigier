@@ -46,7 +46,7 @@ class MemoireController extends Controller
        
         $memoires->save();
 
-        return redirect()->route('memoires.index')->with('message', 'Operation reussi!');
+        return redirect()->route('memoires.index')->with('message', 'L\'Enregistrement de la memoire a reussi');
     }
 
     /**
@@ -86,7 +86,7 @@ class MemoireController extends Controller
        
         $memoires->save();
 
-        return redirect()->route('memoires.show', $memoires);
+        return redirect()->route('memoires.show', $memoires)->with('message1', 'Le Memoire  a été modifié avec succès.');;
     }
 
     /**
@@ -95,6 +95,6 @@ class MemoireController extends Controller
     public function destroy(Memoire $memoire)
     {
         $memoire->delete();
-        return redirect()->route('memoires.index');
+        return redirect()->route('memoires.index')->with('danger', 'Le Memoire a été supprimé avec succès.');;
     }
 }

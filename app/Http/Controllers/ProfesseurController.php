@@ -42,7 +42,7 @@ class ProfesseurController extends Controller
 
        // $professeurs->jurys()->sync($request->jurys);
 
-        return redirect()->route('professeurs.index')->with('message', 'Operation reussi!');
+        return redirect()->route('professeurs.index')->with('message', 'Le Professeur a été creé avec succès');
     }
 
     /**
@@ -78,7 +78,7 @@ class ProfesseurController extends Controller
 
         $professeurs->jurys()->sync($request->jurys);
 
-        return redirect()->route('professeurs.show', $professeurs);
+        return redirect()->route('professeurs.show', $professeurs)->with('message1', 'Le Professeur a été modifié avec succès.');;
     }
 
     /**
@@ -87,6 +87,6 @@ class ProfesseurController extends Controller
     public function destroy(Professeur $professeur)
     {
         $professeur->delete();
-        return redirect()->route('professeurs.index');
+        return redirect()->route('professeurs.index')->with('danger', 'Le Professeur a été supprimé avec succès.');;
     }
 }

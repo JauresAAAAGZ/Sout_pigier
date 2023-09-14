@@ -44,18 +44,22 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Etudiants</h6>
-                            <a href="{{ route('etudiants.create') }}" class="btn btn-info">Ajouter</a>
-                                    @if(session('message'))
-                        <div  id="success-message" class="alert alert-success">
-                            {{session('message')}}
-                </div>
-                @endif
-                @if(session('error'))
-                        <div id="success-message" class="alert alert-danger">
-                            {{session('error')}}
-                </div>
-                @endif
+                            
                         </div>
+                        <div class="col-md-12">
+                            <a href="{{ route('charts') }}" class="btn btn-info">Ajouter</a>
+                            <a href="{{ route('etudiant.allpv') }}" class="btn btn-info">allPVS</a>
+                        </div>
+                        @if(session('message'))
+                        <div id="success-message" class="alert alert-success">
+                            {{session('message')}}
+                        </div>
+                        @endif
+                        @if(session('danger'))
+                        <div id="success-message" class="alert alert-danger">
+                            {{session('danger')}}
+                        </div>
+                        @endif
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -268,20 +272,20 @@
         </div>
         
         <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var successMessage = document.getElementById('success-message');
+            document.addEventListener('DOMContentLoaded', function () {
+                var successMessage = document.getElementById('success-message');
+        
+                if (successMessage) {
+                    // Set the timeout in milliseconds (e.g., 5000ms = 5 seconds)
+                    var timeout = 3000;
+        
+                    // Automatically dismiss the success message after the timeout
+                    setTimeout(function () {
+                        successMessage.style.display = 'none'; // Hide the message
+                    }, timeout);
+                }
+            });
+        </script>
 
-        if (successMessage) {
-            // Set the timeout in milliseconds (e.g., 5000ms = 5 seconds)
-            var timeout = 3000;
-
-            // Automatically dismiss the success message after the timeout
-            setTimeout(function () {
-                successMessage.style.display = 'none'; // Hide the message
-            }, timeout);
-        }
-        else{}
-    });
-</script>
 
 @endsection

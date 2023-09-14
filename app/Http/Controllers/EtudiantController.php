@@ -10,6 +10,9 @@ use App\Models\Jurys;
 use App\Models\Memoire;
 use App\Models\Professeur;
 use App\Models\Soutenance;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+
 
 class EtudiantController extends Controller
 {
@@ -21,11 +24,19 @@ class EtudiantController extends Controller
         try{
         $etudiants = Etudiant::all();
        
-        return view('admin.Etudiants.index', compact('etudiants',));
+        return view('admin.Etudiants.index', compact('etudiants',))->with('message', 'Operation reussi');
+               
     }
     catch(\Exception $e){
-       return redirect(route('etudiants.index'))->with('error', 'Operation echoue!');
+        return view('admin.Etudiants.index', compact('etudiants',))->with('error', 'Operation echoue!');
+     }
     }
+    public function allpv()
+    {
+        $etudiants = Etudiant::all();
+       
+        return view('admin.Etudiants.charts1', compact('etudiants',));
+               
 
     }
 
@@ -74,13 +85,13 @@ class EtudiantController extends Controller
         $etudiants->professeur_id=$request->professeur_id;
         $etudiants->jury_id=$request->jury_id;
         $etudiants->save();
-         return redirect(route('etudiants.index'))->with('message1', 'Operation reussi!');
-         }
-         catch(\Exception $e){
-            return redirect(route('etudiants.index'))->with('error', 'Operation echoue!');
-         }
-    }
 
+        return redirect()->route('etudiants.index')->with('message', 'L\'Etudiant a été creé avec succès');
+    }
+    catch(\Exception $e){
+        return redirect()->route('etudiants.index')->with('error', 'L\'Etudiant n\'a pas été creé');
+    }
+}
     /**
      * Display the specified resource.
      */
@@ -144,7 +155,7 @@ class EtudiantController extends Controller
         $etudiants->jury_id=$request->jury_id;
         $etudiants->save();
 
-        return redirect()->route('etudiants.show', $etudiants);
+        return redirect()->route('etudiants.show', $etudiants)->with('message1', 'L\'étudiant a été modifier avec succes');
     }
     catch(\Exception $e){
        return redirect(route('etudiants.index'))->with('error', 'Operation echoue!');
@@ -164,7 +175,7 @@ class EtudiantController extends Controller
                 $etudiant->delete();
         
                 // Redirigez l'utilisateur avec un message de confirmation
-                return redirect()->route('etudiants.index')->with('success', 'L\'étudiant a été supprimé avec succès.');
+                return redirect()->route('etudiants.index')->with('danger', 'L\'étudiant a été supprimé avec succès.');
             } else {
                 // Redirigez l'utilisateur avec un message d'erreur
                 return redirect()->route('etudiants.index')->with('error', 'La suppression n\'a pas été confirmée.');
@@ -187,8 +198,9 @@ class EtudiantController extends Controller
         $nom_jury=Jurys::find($etudiant->jury_id)->NumJury;*/
         return view('admin.Etudiants.charts', compact('etudiant'));
     }
-    catch(\Exception $e){
-       return redirect(route('etudiants.index'))->with('error', 'Operation echoue!');
+    catch(\Exception $e) {
+        return view('admin.Etudiants.charts', compact('etudiant'))->with('error', 'Erreur');
     }
-    }
+
+}
 }
