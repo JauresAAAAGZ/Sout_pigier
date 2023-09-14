@@ -48,7 +48,7 @@ class JurysController extends Controller
 
         $jurys->professeurs()->sync($request->professeurs);
 
-        return redirect()->route('jurys.index');
+        return redirect()->route('jurys.index')->with('message', 'Operation reussi!');
     }
 
     /**

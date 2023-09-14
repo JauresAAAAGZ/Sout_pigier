@@ -45,6 +45,16 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Etudiants</h6>
                             <a href="{{ route('etudiants.create') }}" class="btn btn-info">Ajouter</a>
+                                    @if(session('message'))
+                        <div  id="success-message" class="alert alert-success">
+                            {{session('message')}}
+                </div>
+                @endif
+                @if(session('error'))
+                        <div id="success-message" class="alert alert-danger">
+                            {{session('error')}}
+                </div>
+                @endif
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -257,6 +267,21 @@
            @include('partial.footer')
         </div>
         
-   
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var successMessage = document.getElementById('success-message');
+
+        if (successMessage) {
+            // Set the timeout in milliseconds (e.g., 5000ms = 5 seconds)
+            var timeout = 3000;
+
+            // Automatically dismiss the success message after the timeout
+            setTimeout(function () {
+                successMessage.style.display = 'none'; // Hide the message
+            }, timeout);
+        }
+        else{}
+    });
+</script>
 
 @endsection

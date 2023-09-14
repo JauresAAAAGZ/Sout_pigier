@@ -17,6 +17,7 @@
    <!-- End of Sidebar -->
 
    <!-- Content Wrapper -->
+   <div class="container">
    <div id="content-wrapper" class="d-flex flex-column">
 
        <!-- Main Content -->
@@ -27,8 +28,10 @@
            <!-- End of Topbar -->
 
            <!-- Begin Page Content -->
+           
            <h1 class="mb-0">Créer Etudiant</h1>
            <hr />
+
           <form action="{{route('etudiants.store')}}" method="post" id="addetu">
             @csrf
             <div class="row">
@@ -136,7 +139,7 @@
                     </select>
 
                 </div>
-               
+               </div>
             </div>
 
            
@@ -147,7 +150,7 @@
 
       </div>
       <!-- /.card -->
-
+    </div>
     </section>
     <!-- /.content -->
   </div>

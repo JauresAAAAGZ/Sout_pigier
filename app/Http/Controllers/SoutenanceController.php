@@ -46,7 +46,7 @@ class SoutenanceController extends Controller
        
         $soutenances->save();
 
-        return redirect()->route('soutenances.index');
+        return redirect()->route('soutenances.index')->with('message', 'Operation reussi!');
     }
 
     /**

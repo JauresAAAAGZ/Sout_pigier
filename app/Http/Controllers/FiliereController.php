@@ -11,7 +11,7 @@ class FiliereController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() 
     {
         $filieres = Filiere::all();
         return view('admin.Filieres.index', compact('filieres'));
@@ -37,8 +37,7 @@ class FiliereController extends Controller
        
        
         $filieres->save();
-
-        return redirect()->route('filieres.index');
+            return redirect()->route('filieres.index')->with('message', 'Operation reussi!');
     }
 
     /**
