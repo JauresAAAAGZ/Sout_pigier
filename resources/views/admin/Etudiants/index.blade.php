@@ -44,7 +44,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Etudiants</h6>
-                            <a href="{{ route('charts') }}" class="btn btn-info">Ajouter</a>
+                            <a href="{{ route('etudiants.create') }}" class="btn btn-info">Ajouter</a>
                         </div>
                         
                         @if(session('message'))
@@ -242,9 +242,9 @@
                                                         @csrf
                                                         @method('DELETE')
                                                     
-                                                          <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                        <button type="submit" class="btn btn-danger">Supprimer</button>
                                                         <label for="confirmation">Confirmez-suppression:</label>
-                                                        <input type="checkbox" name="confirmation" required title="veuillez cocher cette case pour comfimer la suppression">
+                                                        <input type="checkbox" name="confirmation" required title="veuillez cocher cette case pour comfirmer la suppression">
                                                        
                                                     </form>
                                                    
