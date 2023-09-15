@@ -77,5 +77,5 @@ Route::get('/planning', [SoutenanceController::class, 'info'])->name('soutenance
 Route::get('/pv/{etudiant}', [EtudiantController::class, 'infopv'])->name('etudiants.infopv');
 Route::post('/etudiants/generate-pvs', [EtudiantController::class, 'generatePvPDFs'])->name('etudiant.generatePvPDFs');
 Route::get('/Tous-les-Procès-Verbaux', [EtudiantController::class, 'allpv'])->name('etudiant.allpv');
-
+//Route::get('/etudiantdestroy/{etudiant}', [EtudiantController::class, 'destroy'])->name('etudiants.destroy');
 require __DIR__.'/auth.php';

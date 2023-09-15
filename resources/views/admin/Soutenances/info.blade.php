@@ -5,7 +5,7 @@
 <style>
 
         body {
-            width: 34cm; 
+            width: 40cm; 
             height: 15cm;  
                 }
         #lui {
