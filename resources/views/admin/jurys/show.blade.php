@@ -40,10 +40,22 @@
                     </div>
                     @endif
                     <ul>
-                        <li>N° Jury: '{{$jurys->NumJury}}'</li>
-                        <li>President: '{{$jurys->president->Nom_Professeur}} {{$jurys->president->Prenom_Professeur}}'</li>
-                        <li>Examinateur: '{{$jurys->examinateur->Nom_Professeur}} {{$jurys->examinateur->Prenom_Professeur}}'</li>
-                        <li>Rapporteur: '{{ $jurys->rapporteur->Nom_Professeur }} {{ $jurys->rapporteur->Prenom_Professeur }}'</li>
+                        <li>N° Jury: {{$jurys->NumJury}}</li>
+                        <li>President: 
+                            @if ($jurys->president)
+                                {{$jurys->president->Nom_Professeur}} {{$jurys->president->Prenom_Professeur}}
+                            @endif
+                        </li>
+                        <li>Examinateur: 
+                            @if ($jurys->examinateur)
+                                {{$jurys->examinateur->Nom_Professeur}} {{$jurys->examinateur->Prenom_Professeur}}
+                            @endif
+                        </li>
+                        <li>Rapporteur: 
+                            @if ($jurys->rapporteur)
+                                {{ $jurys->rapporteur->Nom_Professeur }} {{ $jurys->rapporteur->Prenom_Professeur }}
+                            @endif
+                        </li>
                     </ul>
                 </div>
             <!-- End of Main Content -->

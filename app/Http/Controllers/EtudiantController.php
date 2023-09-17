@@ -169,17 +169,10 @@ class EtudiantController extends Controller
     {
        
         try{         
-            // Vérifiez si le champ de confirmation est défini
-            if (request()->has('confirmation')) {
-                // Supprimez l'étudiant
+           
                 $etudiant->delete();
-        
-                // Redirigez l'utilisateur avec un message de confirmation
+
                 return redirect()->route('etudiants.index')->with('danger', 'L\'étudiant a été supprimé avec succès.');
-            } else {
-                // Redirigez l'utilisateur avec un message d'erreur
-                return redirect()->route('etudiants.index')->with('error', 'La suppression n\'a pas été confirmée.');
-            }
         }
         catch(\Exception $e){
            return redirect(route('etudiants.index'))->with('error', 'Operation echoue!');

@@ -87,24 +87,41 @@
                                         @foreach($jurys as $jury)
                                             <tr>
                                                 <td>
+                                                    
                                                 {{ $jury->NumJury }}
                                                 </td>
                                                 <td>
+                                                    @if ($jury->president)
                                                     {{ $jury->president->Nom_Professeur }} {{ $jury->president->Prenom_Professeur }}
+                                                    @endif
+                                                    
                                                 </td>
                                                 <td>
+                                                    @if ($jury->examinateur)
                                                     {{ $jury->examinateur->Nom_Professeur }} {{ $jury->examinateur->Prenom_Professeur }}
+                                                    @endif
+                                                    
                                                 </td>
                                                 <td>
+                                                    @if ($jury->rapporteur)
                                                     {{ $jury->rapporteur->Nom_Professeur }} {{ $jury->rapporteur->Prenom_Professeur }}
+                                                    @endif
+                                                   
                                                 </td>
                                                 <td>
+                                                    @if ($jury->rapporteur)
                                                     {{ $jury->rapporteur->Grade }}
+                                                    @endif
+                                                    
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('jurys.show', $jury) }}" class="btn btn-info">Voir</a>
                                                     <a href="{{ route('jurys.edit', $jury) }}" class="btn btn-primary">Modifier</a>
-                                                    <a href="{{ route('jurys.destroy', $jury) }}" class="btn btn-danger">Supprimer</a>
+                                                    <form action="{{ route('jurys.destroy', $jury) }}" method="POST" style="display: inline;" id="supprimer-jury-{{ $jury->id }}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button" onclick="confirmerSuppression({{ $jury->id }})" class="btn btn-danger">Supprimer</button>
+                                                    </form>
                                                 </td>
                         
                                             </tr>
@@ -123,7 +140,25 @@
 
            @include('partial.footer')
         </div>
-        
+        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmationModalLabel">Confirmation de suppression</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                      <div class="modal-body" style="color:red;">
+                        Êtes-vous sûr de vouloir supprimer ce Jury ? TOUS LES ELEVES AYANT CE JURY SERONT SUPPRIMES AVEC CETTE ACTION !!!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-danger" onclick="supprimerFiliere()">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var successMessage = document.getElementById('success-message');
@@ -140,5 +175,34 @@
             });
         </script>
 
+<script>
+    function confirmerSuppression(juryId) {
+    // Verification que l'ID de l'étudiant est correct
+    var juryId = parseInt(juryId);
 
+    if (isNaN(juryId)) {
+        return;
+    }
+
+    // Mis à jour de l'attribut data-id de la boîte de dialogue de confirmation avec l'ID de l'étudiant
+    $('#confirmationModal').attr('data-id', juryId);
+
+    // Affichage de la boîte de dialogue de confirmation
+    $('#confirmationModal').modal('show');
+}
+
+function supprimerFiliere() {
+    // Récupération l'ID de l'étudiant à partir de l'attribut data-id de la boîte de dialogue
+    var juryId = $('#confirmationModal').attr('data-id');
+
+    // Fermez la boîte de dialogue de confirmation
+    $('#confirmationModal').modal('hide');
+
+    // Obtenez le formulaire de suppression correspondant à l'ID de l'étudiant et soumettez-le
+    var form = document.querySelector('form#supprimer-jury-' + juryId);
+    if (form) {
+        form.submit();
+    }
+}
+</script>
 @endsection

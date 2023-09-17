@@ -139,11 +139,12 @@
                     </select>
 
                 </div>
-               </div>
+                </div>
+                <button id="etuadd" type="submit" class="btn btn-primary">Créer l'étudiant</button>
             </div>
 
            
-            <button id="etuadd" type="submit" class="btn btn-primary">Créer l'étudiant</button>
+           
         </form>
         </div>
         <!-- /.card-body -->
@@ -151,7 +152,7 @@
       </div>
       <!-- /.card -->
     </div>
-    </section>
+    
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
