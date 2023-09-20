@@ -29,6 +29,11 @@
            <!-- Begin Page Content -->
            <h1 class="mb-0">Créer Jury</h1>
            <hr />
+           @if(session('message2'))
+             <div id="danger-message" class="alert alert-danger">
+              {{session('message2')}}
+                </div>
+           @endif
           <form action="{{route('jurys.store')}}" method="post" id="addjury">
             @csrf
             <div class="row">
@@ -47,6 +52,9 @@
                         <option value="{{$professeur->id}}">{{$professeur->Nom_Professeur}} {{$professeur->Prenom_Professeur}}</option>
                         @endforeach
                     </select>
+                    @error('President')
+                    <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
             <div class="row">
@@ -101,5 +109,35 @@
     
     
 </script>
+<!---<script>
+    const presidentSelect = document.getElementById('President');
+    const rapporteurSelect = document.getElementById('Rapporteur');
+    const examinateurSelect = document.getElementById('Examinateur');
+
+    presidentSelect.addEventListener('change', () => {
+        const selectedProfessorId = presidentSelect.value;
+
+        // Désactivez l'option sélectionnée dans les autres listes déroulantes
+        rapporteurSelect.querySelector(`option[value="${selectedProfessorId}"]`).disabled = true;
+        examinateurSelect.querySelector(`option[value="${selectedProfessorId}"]`).disabled = true;
+    });
+
+    rapporteurSelect.addEventListener('change', () => {
+        const selectedProfessorId = rapporteurSelect.value;
+
+        // Désactivez l'option sélectionnée dans les autres listes déroulantes
+        presidentSelect.querySelector(`option[value="${selectedProfessorId}"]`).disabled = true;
+        examinateurSelect.querySelector(`option[value="${selectedProfessorId}"]`).disabled = true;
+    });
+
+    examinateurSelect.addEventListener('change', () => {
+        const selectedProfessorId = examinateurSelect.value;
+
+        // Désactivez l'option sélectionnée dans les autres listes déroulantes
+        presidentSelect.querySelector(`option[value="${selectedProfessorId}"]`).disabled = true;
+        rapporteurSelect.querySelector(`option[value="${selectedProfessorId}"]`).disabled = true;
+    });
+</script>-->
+
 
 @endsection

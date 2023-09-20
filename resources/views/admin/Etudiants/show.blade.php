@@ -85,37 +85,56 @@
 
                         <li>Président: 
                             @if ($etudiant->jury)
-                            {{$etudiant->jury->president->Nom_Professeur}} {{$etudiant->jury->president->Prenom_Professeur}}
+
+                            @if ($etudiant->jury->president)
+                                {{$etudiant->jury->president->Nom_Professeur}} {{$etudiant->jury->president->Prenom_Professeur}}
+                            @endif
+                            
                             @endif
                         </li>
 
                         <li>Grade Président: 
                             @if ($etudiant->jury)
+                            @if ($etudiant->jury->president)
                             {{$etudiant->jury->president->Grade}}
+                            @endif
+                           
                             @endif
                         </li>
 
                         <li>Examinateur : 
                             @if ($etudiant->jury)
+                            @if ($etudiant->jury->examinateur)
                             {{$etudiant->jury->examinateur->Nom_Professeur}} {{$etudiant->jury->examinateur->Prenom_Professeur}}
+                            @endif
+                            
                             @endif
                         </li>
                         
                         <li>Grade Examinateur :
                             @if ($etudiant->jury)
+                            @if ($etudiant->jury->examinateur)
                             {{$etudiant->jury->examinateur->Grade}}
+                            @endif
+                            
                             @endif
                         </li>
 
                         <li>Rapporteur: 
                             @if ($etudiant->jury)
+                            @if ($etudiant->jury->rapporteur)
                             {{$etudiant->jury->rapporteur->Nom_Professeur}} {{$etudiant->jury->rapporteur->Prenom_Professeur}}
+                            @endif
+                           
                             @endif
                         </li>
 
                         <li>Grade Rapporteur : 
                             @if ($etudiant->jury)
-                                {{$etudiant->jury->rapporteur->Grade}}
+                            @if ($etudiant->jury->rapporteur)
+                            {{$etudiant->jury->rapporteur->Grade}}
+                            @endif
+                                
                             @endif
                         </li>
 

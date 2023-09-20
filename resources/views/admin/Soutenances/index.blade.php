@@ -103,12 +103,10 @@
                                                 <td>
                                                     <a href="{{ route('soutenances.show', $soutenance) }}" class="btn btn-info">Voir</a>
                                                     <a href="{{ route('soutenances.edit', $soutenance) }}" class="btn btn-primary">Modifier</a>
-                                                    <form action="{{ url('/soutenances/'.$soutenance->id) }}" method="POST" style="display: inline;">
+                                                    <form action="{{ route('soutenances.destroy', $soutenance) }}" method="POST" style="display: inline;" id="supprimer-soutenance-{{ $soutenance->id }}">
                                                         @csrf
                                                         @method('DELETE')
-                                                          <button type="submit" class="btn btn-danger">Supprimer</button>
-                                                        <label for="confirmation">Confirmez-suppression:</label>
-                                                        <input type="checkbox" name="confirmation" required title="veuillez cocher cette case pour comfimer la suppression">
+                                                        <button type="button" onclick="confirmerSuppression({{ $soutenance->id }})" class="btn btn-danger">Supprimer</button>
                                                     </form>
                                                 </td>
                         
@@ -128,7 +126,25 @@
 
            @include('partial.footer')
         </div>
-        
+        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmationModalLabel">Confirmation de suppression</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                      <div class="modal-body" style="color:red;">
+                        Êtes-vous sûr de vouloir supprimer cette Soutenance ? TOUS LES ETUDIANTS DE CETTE SOUTENANCE SERONT SUPPRIMES AVEC CETTE ACTION !!!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-danger" onclick="supprimerFiliere()">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var successMessage = document.getElementById('success-message');
@@ -144,5 +160,34 @@
                 }
             });
         </script>
+<script>
+    function confirmerSuppression(soutenanceId) {
+    // Verification que l'ID de l'étudiant est correct
+    var soutenanceId = parseInt(soutenanceId);
 
+    if (isNaN(soutenanceId)) {
+        return;
+    }
+
+    // Mis à jour de l'attribut data-id de la boîte de dialogue de confirmation avec l'ID de l'étudiant
+    $('#confirmationModal').attr('data-id', soutenanceId);
+
+    // Affichage de la boîte de dialogue de confirmation
+    $('#confirmationModal').modal('show');
+}
+
+function supprimerFiliere() {
+    // Récupération l'ID de l'étudiant à partir de l'attribut data-id de la boîte de dialogue
+    var soutenanceId = $('#confirmationModal').attr('data-id');
+
+    // Fermez la boîte de dialogue de confirmation
+    $('#confirmationModal').modal('hide');
+
+    // Obtenez le formulaire de suppression correspondant à l'ID de l'étudiant et soumettez-le
+    var form = document.querySelector('form#supprimer-soutenance-' + soutenanceId);
+    if (form) {
+        form.submit();
+    }
+}
+</script>
 @endsection

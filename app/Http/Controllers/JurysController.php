@@ -33,22 +33,37 @@ class JurysController extends Controller
      */
     public function store(StoreJurysRequest $request)
     {
-        $jurys = new Jurys();
+        
         $validatedData = $request->validate([
             'NumJury'=>'required|unique:jurys|min:6|max:100',
             'President'=>'required',
             'Examinateur'=>'required', 
             'Rapporteur'=>'required'
         ]);
-        $jurys->NumJury = $request->NumJury;
-        $jurys->President = $request->President;
-        $jurys->Examinateur = $request->Examinateur;
-        $jurys->Rapporteur = $request->Rapporteur;
-        $jurys->save();
+        // Récupérez les professeurs sélectionnés
+    $NumJury = $request->NumJury;
+    $presidentId = $request->input('President');
+    $rapporteurId = $request->input('Rapporteur');
+    $examinateurId = $request->input('Examinateur');
 
+    // Vérifiez si les professeurs sont tous différents
+    if ($presidentId !== $rapporteurId && $presidentId !== $examinateurId && $rapporteurId !== $examinateurId) {
+        // Créez le jury
+        $jurys = new Jurys();
+        $jurys->NumJury=$NumJury;
+        $jurys->President = $presidentId;
+        $jurys->Rapporteur = $rapporteurId;
+        $jurys->Examinateur = $examinateurId;
+        $jurys->save();
         $jurys->professeurs()->sync($request->professeurs);
 
         return redirect()->route('jurys.index')->with('message', 'Le Jury a été creé avec sucess');
+        // Redirigez ou effectuez d'autres actions
+    } else {
+        // Les professeurs sélectionnés sont les mêmes, retournez une erreur
+        return redirect()->route('jurys.create')->with('message2', 'Les professeurs sélectionnés doivent être différents pour chaque rôle.');
+    }
+        
     }
 
     /**

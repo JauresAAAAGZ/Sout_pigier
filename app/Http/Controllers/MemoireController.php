@@ -46,7 +46,7 @@ class MemoireController extends Controller
        
         $memoires->save();
 
-        return redirect()->route('memoires.index')->with('message', 'L\'Enregistrement de la memoire a reussi');
+        return redirect()->route('memoires.index')->with('message', 'L\'Enregistrement du memoire a reussi');
     }
 
     /**

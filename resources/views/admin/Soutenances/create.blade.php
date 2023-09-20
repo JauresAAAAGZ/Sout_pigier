@@ -61,7 +61,7 @@
                 </div>
                 <div class="col mb-3">
                     <label for="Heure_Soutenance" class="form-label">Heure_Soutenance</label>
-                    <input type="time" class="form-control" id="Heure_Soutenance" name="Heure_Soutenance" required>
+                    <input type="time" class="form-control" id="Heure_Soutenance" min="08:00" max ="18:00" name="Heure_Soutenance" required>
                     @error('Heure_Soutenance')
                     <p class="text-red-500">{{ $message }}</p>
                    @enderror

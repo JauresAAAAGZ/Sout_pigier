@@ -73,6 +73,7 @@ Route::get('/juryshow/{jurys}', [JurysController::class, 'show'])->name('jurys.s
 Route::get('/juryedit/{jurys}', [JurysController::class, 'edit'])->name('jurys.edit');
 Route::put('/juryupdate/{jurys}', [JurysController::class, 'update'])->name('jurys.update');
 Route::get('/jurydestroy/{jurys} ', [JurysController::class, 'destroy'])->name('jurys.destroy');
+Route::delete('/jurydestroy/{jurys} ', [JurysController::class, 'destroy'])->name('jurys.destroy');
 Route::get('/planning', [SoutenanceController::class, 'info'])->name('soutenances.info');
 Route::get('/pv/{etudiant}', [EtudiantController::class, 'infopv'])->name('etudiants.infopv');
 Route::post('/etudiants/generate-pvs', [EtudiantController::class, 'generatePvPDFs'])->name('etudiant.generatePvPDFs');
