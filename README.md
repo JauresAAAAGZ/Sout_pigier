@@ -1,4 +1,4 @@
-# Sout Pigier — Gestion des soutenances
+# Soutenance Pigier - Gestion des soutenances
 
 Application web de gestion des soutenances de mémoire pour un centre de formation (Pigier). Elle centralise les étudiants, les filières, les professeurs, les jurys, les mémoires, les soutenances et les procès-verbaux (PV).
 
